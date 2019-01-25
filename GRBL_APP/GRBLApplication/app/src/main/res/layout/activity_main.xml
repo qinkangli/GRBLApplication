@@ -5,22 +5,28 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:gravity="top"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="9.05">
+
         <ScrollView
             android:id="@+id/ScrollView01"
             android:background="@android:drawable/editbox_background"
-            android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            android:scrollbars="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0">
             <TextView
                 android:id="@+id/in"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="接收区" />
+                android:hint="发送区" />
         </ScrollView>
+
         <LinearLayout
             android:orientation="vertical"
             android:background="@android:drawable/editbox_background"
@@ -39,25 +45,19 @@
                         android:id="@+id/TableRow02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <Button
-                            android:id="@+id/Button08"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:width="1.0dip"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+
                         <Button
                             android:id="@+id/Button14"
                             android:layout_width="1.0dip"
                             android:layout_height="fill_parent"
-                            android:text="Button"
+                            android:text="打开文件"
                             android:width="1.0dip"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                         <Button
                             android:id="@+id/Button10"
                             android:layout_width="1.0dip"
                             android:layout_height="fill_parent"
-                            android:text="Button"
+                            android:text="发送文件"
                             android:width="1.0dip"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                     </TableRow>
@@ -65,51 +65,39 @@
                         android:id="@+id/TableRow04"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <Button
-                            android:id="@+id/Button11"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
-                        <Button
-                            android:id="@+id/Button09"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+
                         <Button
                             android:id="@+id/Button07"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:text="Button"
+                            android:text="制作G文件"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                     </TableRow>
                     <TableRow
                         android:id="@+id/TableRow03"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <Button
-                            android:id="@+id/Button15"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0"
-                            style="?android:attr/buttonStyleSmall" />
-                        <Button
-                            android:id="@+id/Button12"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
-                        <Button
-                            android:id="@+id/Button13"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+
                     </TableRow>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:background="@android:drawable/editbox_background"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                        <ScrollView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:text="接收区"
+                                android:id="@+id/textView" />
+                         </ScrollView>
+                    </LinearLayout>
                 </TableLayout>
             </LinearLayout>
+
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
@@ -122,12 +110,18 @@
                         android:id="@+id/TableRow01"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent">
-                        <Button
-                            android:id="@+id/Button06"
-                            android:visibility="invisible"
+                        <CheckedTextView
+                            android:textColor="@android:color/black"
+                            android:gravity="center"
+                            android:id="@+id/SensorHigh"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:text="Button" android:width="1.0dip" android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+                            android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                            android:text="强光"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1.0"/>
+
+
                         <Button
                             android:id="@+id/Button04"
                             android:layout_width="1.0dip"
@@ -136,14 +130,15 @@
                             android:width="1.0dip"
                             android:layout_weight="1.0"
                             style="?android:attr/buttonStyleSmall" />
+
                         <Button
-                            android:id="@+id/Button05"
+                            android:id="@+id/Button03"
                             android:visibility="invisible"
-                            android:layout_width="1.0dip"
+                            android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="Button"
-                            android:width="1.0dip"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+
                     </TableRow>
                     <TableRow
                         android:id="@+id/tableRow1"
@@ -172,13 +167,18 @@
                         android:id="@+id/tableRow2"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent">
-                        <Button
-                            android:id="@+id/Button03"
-                            android:visibility="invisible"
+
+                        <CheckedTextView
+                            android:textColor="@android:color/black"
+                            android:gravity="center"
+                            android:id="@+id/SensorLow"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:text="Button"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+                            android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                            android:text="弱光"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1.0"/>
+
                         <Button
                             android:id="@+id/Button02"
                             android:layout_width="fill_parent"
@@ -186,6 +186,7 @@
                             android:text="Y轴-"
                             android:layout_weight="1.0"
                             style="?android:attr/buttonStyleSmall" />
+
                         <Button
                             android:id="@+id/Button01"
                             android:visibility="invisible"
@@ -198,6 +199,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:gravity="bottom"
         android:background="@android:drawable/editbox_background"
