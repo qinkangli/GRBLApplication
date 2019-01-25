@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ly_keyboard_btn_Area_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button android:id="@+id/btn_keyboard_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ly_keyboard_btn_Area_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/ly_keyboard_btn_Area_1"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button android:id="@+id/btn_keyboard_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ly_keyboard_btn_Area_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/ly_keyboard_btn_Area_2"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button android:id="@+id/btn_keyboard_7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+        <Button android:id="@+id/btn_keyboard_9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_click_me" android:layout_weight="1.0" android:onClick="onBtnClick_Array" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/ly_keyboard_btn_Area_3"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <ScrollView android:id="@+id/sv_keyboard_Back_Data_Scroll" android:scrollbars="vertical" android:fadingEdge="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <TextView android:id="@+id/tv_keyboard_Back_Data_Show" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/tv_actKeyBoard_Init" android:singleLine="false" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

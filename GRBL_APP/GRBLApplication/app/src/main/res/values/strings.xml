@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">激光雕刻机</string>
+    <string name="add">添加设备</string>
+    <string name="use">设置</string>
+    <string name="about">关于</string>
+    <string name="menu">退出</string>
+    <string name="app_use">设置</string>
+    <string name="app_about">关于</string>
 </resources>

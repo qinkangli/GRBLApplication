@@ -1,0 +1,4 @@
+#Wed Jan 23 17:47:51 CST 2019
+base.0=C\:\\Users\\Administrator\\Desktop\\GRBLApplication\\GRBL_APP\\BluetoothSPP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=C\:\\Users\\Administrator\\Desktop\\GRBLApplication\\GRBL_APP\\BluetoothSPP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\Desktop\GRBLApplication\GRBL_APP\BluetoothSPP\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.1"
+        sha1="e34f00cff8be24306d73a6a9f65b56649d47cfec">
+        <dex dex="C:\Users\Administrator\Desktop\GRBLApplication\GRBL_APP\BluetoothSPP\app\build\intermediates\pre-dexed\debug\instant-run_749d21e0397d399916e04adccecff83913268495.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\Desktop\GRBLApplication\GRBL_APP\BluetoothSPP\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.1"
+        sha1="93ba4cc34f66202921a6e25913bf96c64ba404c0">
+        <dex dex="C:\Users\Administrator\Desktop\GRBLApplication\GRBL_APP\BluetoothSPP\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_683e7d88d399f3c66773e663c1ac8cb455aa9499.jar" />
+    </item>
+
+</items>
