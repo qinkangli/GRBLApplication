@@ -1,2 +1,6 @@
-# GRBLApplication
+﻿# GRBLApplication
 这是一个与大创项目有关的APP程序，主要实现以下功能：（1）手机蓝牙与激光雕刻机蓝牙的连接及文件传输（2）手机APP实现文字或图片转化成G代码文件并存储（3）手机APP实现对激光雕刻机的控制
+早期图片
+![运行效果](Eagle1.jpg)
+![运行效果](Eagle2.jpg)
+![运行效果](Eagle3.jpg)
