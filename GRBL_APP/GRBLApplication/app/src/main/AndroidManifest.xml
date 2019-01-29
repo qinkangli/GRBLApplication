@@ -33,8 +33,7 @@
             android:name=".DeviceListActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="选取连接设备"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Dialog" />
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

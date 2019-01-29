@@ -58,7 +58,7 @@
                         android:layout_height="fill_parent">
 
                         <Button
-                            android:id="@+id/Button14"
+                            android:id="@+id/OpenFile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
@@ -66,14 +66,14 @@
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
 
                         <Button
-                            android:id="@+id/Button10"
+                            android:id="@+id/SendFile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="发送文件"
 
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                         <Button
-                            android:id="@+id/Button07"
+                            android:id="@+id/MakeGCode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="制作G文件"
@@ -144,7 +144,7 @@
 
 
                         <Button
-                            android:id="@+id/Button04"
+                            android:id="@+id/XUp"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="X轴+"
@@ -167,19 +167,19 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="1.0">
                         <Button
-                            android:id="@+id/button8"
+                            android:id="@+id/YDown"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="Y轴-"
                             style="?android:attr/buttonStyleSmall" />
                         <Button
-                            android:id="@+id/button7"
+                            android:id="@+id/Stop"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="停止"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                         <Button
-                            android:id="@+id/button6"
+                            android:id="@+id/YUp"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="Y轴+"
@@ -203,7 +203,7 @@
                             />
 
                         <Button
-                            android:id="@+id/Button02"
+                            android:id="@+id/XDown"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="X轴-"
@@ -262,12 +262,12 @@
                 android:layout_toRightOf="@id/rec"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
-        <Button android:id="@+id/use"
+        <Button android:id="@+id/Set"
             android:layout_width="82.0dip"
             android:layout_height="fill_parent"
             android:text="@string/use" />
         <Button
-            android:id="@+id/exit"
+            android:id="@+id/Menu"
             android:layout_width="91.0dip"
             android:layout_height="fill_parent"
             android:text="@string/menu" />
