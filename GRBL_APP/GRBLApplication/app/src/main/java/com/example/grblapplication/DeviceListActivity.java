@@ -47,6 +47,7 @@ public class DeviceListActivity extends Activity {
 
 
         Button CancelButton = (Button) findViewById(R.id.button_cancel);
+        Button ScanButton= (Button) findViewById(R.id.button_scan);
 
         mListView = (ListView) findViewById(R.id.paired_devices);
 
@@ -58,6 +59,7 @@ public class DeviceListActivity extends Activity {
         registerReceiver(mReceiver,filter);
         IntentFilter filter2=new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
         registerReceiver(mReceiver,filter2);
+
 
 
 
@@ -80,12 +82,17 @@ public class DeviceListActivity extends Activity {
         }
 
 
+        ScanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DeviceListActivity.this, "查找设备！", Toast.LENGTH_SHORT).show();
 
+            }
+        });
 
         CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent =new Intent(DeviceListActivity.this,MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -105,6 +112,7 @@ public class DeviceListActivity extends Activity {
         public void onReceive(Context context, Intent intent) {
             String action=intent.getAction();
             Log.e("ywq", action);
+            Toast.makeText(DeviceListActivity.this, "嗯好二手就你！", Toast.LENGTH_SHORT).show();
 
             if(action.equals(BluetoothDevice.ACTION_FOUND))
             {
@@ -117,12 +125,6 @@ public class DeviceListActivity extends Activity {
                     mListView.setAdapter(mArrayAdapter);
 
                 }
-                else if(device.getBondState()!=BluetoothDevice.BOND_BONDED)
-                {
-                    mArrayAdapter.add("\n"+device.getName()+"==>"+device.getAddress()+"\n");
-                    mListView.setAdapter(mArrayAdapter);
-                }
-
 
             }
         }

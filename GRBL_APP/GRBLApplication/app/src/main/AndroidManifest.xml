@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.grblapplication">
 
@@ -18,7 +18,7 @@
         <!-- MAIN界面强制竖屏 -->
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"></activity>
         <!-- 开机初始界面强制竖屏 -->
         <activity
             android:name=".Splash"
@@ -32,13 +32,9 @@
         <activity
             android:name=".DeviceListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Dialog"
             android:label="选取连接设备"
-            ></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>

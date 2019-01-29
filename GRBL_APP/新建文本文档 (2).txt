@@ -14,7 +14,7 @@
 
 
     <TextView
-        android:text="2018å¹´å›½å®¶çº§å¤§å­¦ç”Ÿ"
+        android:text="2018Äê¹ú¼Ò¼¶´óÑ§Éú"
         android:textSize="28sp"
         android:textColor="#FF000000"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="åˆ›ä¸šè®­ç»ƒè®¡åˆ’é¡¹ç›®"
+        android:text="´´ÒµÑµÁ·¼Æ»®ÏîÄ¿"
         android:textSize="28sp"
         android:textColor="#FF000000"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
 
 
     <TextView
-        android:text="åŸºäºŽArduinoçš„æ¿€å…‰é›•åˆ»æœº"
+        android:text="»ùÓÚArduinoµÄ¼¤¹âµñ¿Ì»ú"
         android:textSize="24sp"
         android:textColor="#FF000000"
         android:gravity="center"
@@ -66,13 +66,13 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="Made by Eagle(ç§‘å­¦å°æ€ªè›‹)"
-        android:textSize="8sp"
-        android:textColor="#FF000000"
-        android:textStyle="italic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+    android:text="Made by Eagle(¿ÆÑ§Ð¡¹Öµ°)"
+    android:textSize="8sp"
+    android:textColor="#FF000000"
+    android:textStyle="italic"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textView4"
         android:layout_above="@+id/textView5"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
