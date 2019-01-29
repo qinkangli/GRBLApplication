@@ -1,80 +1,39 @@
-    private void initView() {
-        // mListView = (ListView) findViewById(R.id.lv_bluetooth_name);
-        // mConnectedView 指的是已被连接的（可用的蓝牙）
-        mConnectedView = (TextView) findViewById(R.id.tv_bluetooth_connected);
+    /*
+       *getBondedDevices()获取已经匹配的设备列表，并以set集合的方式返回
+       *获取已经配对的设备
+  * */
+    private void setPairingDevice() {
+        Set<BluetoothDevice> devices=mBtAdapter.getBondedDevices();
+        if(devices.size()>0){ //存在已配对过的设备
+            //利用for循环读取每一个设备的信息
+            for(Iterator<BluetoothDevice> it = devices.iterator(); it.hasNext();){
+                BluetoothDevice btd=it.next();
+
+            }
+        }else{
+            //不存在已经配对的蓝牙设备
+        }
     }
-    private void initData() {
-        //实例化蓝牙适配器
-        mBluetoothAdapter =BluetoothAdapter.getDefaultAdapter();
-    }
+    // 创建一个接收ACTION_FOUND广播的BroadcastReceiver
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
-public void onClick(View view) {
-        if (view != null) {
-            switch (view.getId()){
-                // 选择打开开启蓝牙。但是当选择它，蓝牙将不会被打开。
-                // 事实上它会询问许可，以启用蓝牙。
-                case R.id.bt_bluetooth_on:
-                    //判断BluetoothAdapter 是否已经在准备状态，没有的话，就打开
-                    if (!mBluetoothAdapter.isEnabled()) {
-                        //调用下列蓝牙ACTION_REQUEST_ENABLE的意图
-                        Intent turnOn =new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                        startActivityForResult(turnOn,0);
-                        Toast.makeText(MainActivity.this, "turn on", Toast.LENGTH_LONG).show();
-                    }
-                    else {
-                        Toast.makeText(MainActivity.this, "Already on", Toast.LENGTH_LONG).show();
-                    }
-                    break;
+        public void onReceive(Context context, Intent intent) {
 
-                // 开启许可，允许其他蓝牙设备120秒内可以搜索到该设备
-                // 选择设置可见按钮来打开视图。
-                // 下面的屏幕会出现要求许可才能打开发现120秒
-                case R.id.bt_bluetooth_visible:
-                    if (mBluetoothAdapter.isEnabled()) {
-                        Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                        startActivityForResult(getVisible,0);
-                    }else{
-                        Toast.makeText(MainActivity.this, "请先开启蓝牙", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
+            String action = intent.getAction();
 
-                //选择列表中的设备选项。它会列出倒在列表视图中的配对设备。
-                // 就我而言，只有一个配对设备。它如下所示。
-                case R.id.bt_bluetooth_list:
-                    //可以通过调用 getBondedDevices()方法来获取配对设备列表
-                    mDevices = mBluetoothAdapter.getBondedDevices();
-                    //在这初始化ListView是为了方便刷新，显示数据
-                    mListView = (ListView) findViewById(R.id.lv_bluetooth_name);
-                    mList = new ArrayList();
-                    if (mBluetoothAdapter.isEnabled()) {
-                        for (BluetoothDevice bd :mDevices){
-                            mList.add(bd.getName());
-                        }
-                        if (mList.size() != 0){
-                            mConnectedView.setVisibility(View.VISIBLE);
-                        }
-                        Toast.makeText(MainActivity.this, "Showing Paired Devices", Toast.LENGTH_SHORT).show();
-                        mAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,mList);
-                        mListView.setAdapter(mAdapter);
-                        mAdapter.notifyDataSetChanged();
-                    }else{
-                        Toast.makeText(MainActivity.this, "请先开启蓝牙", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
+            // 发现设备
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
 
-                //选择关闭按钮来关闭蓝牙。
-                //当关掉蓝牙指示成功切换关闭蓝牙会出现以下消息
-                case R.id.bt_bluetooth_off:
-                    //判断蓝牙是否关闭
-                    if (mBluetoothAdapter.isEnabled()){
-                        //未关闭
-                        mBluetoothAdapter.disable();
-                        mList.clear();
-                        mConnectedView.setVisibility(View.INVISIBLE);
-                        mAdapter.notifyDataSetChanged();
-                    }
-                    Toast.makeText(getApplicationContext(),"蓝牙已关闭" ,Toast.LENGTH_LONG).show();
-                    break;
+                // 从Intent中获取设备对象
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+
+                // 将设备名称和地址放入array adapter，以便在ListView中显示
+                mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
             }
         }
-}
+    };
+
+    // 注册BroadcastReceiver
+    IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+
+    registerReceiver(mReceiver, filter); // 不要忘了之后解除绑定

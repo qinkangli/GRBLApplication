@@ -4,6 +4,7 @@
     android:background="@android:drawable/edit_text"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -23,7 +24,7 @@
             <TextView
                 android:id="@+id/in"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:hint="发送区" />
         </ScrollView>
 
@@ -33,6 +34,16 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0">
+
+
+
+
+
+
+
+
+
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
@@ -43,59 +54,64 @@
                     android:layout_height="fill_parent">
                     <TableRow
                         android:id="@+id/TableRow02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
 
                         <Button
                             android:id="@+id/Button14"
-                            android:layout_width="1.0dip"
-                            android:layout_height="fill_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
                             android:text="打开文件"
-                            android:width="1.0dip"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
-                        <Button
-                            android:id="@+id/Button10"
-                            android:layout_width="1.0dip"
-                            android:layout_height="fill_parent"
-                            android:text="发送文件"
-                            android:width="1.0dip"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
-                    </TableRow>
-                    <TableRow
-                        android:id="@+id/TableRow04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
 
                         <Button
+                            android:id="@+id/Button10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="发送文件"
+
+                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+                        <Button
                             android:id="@+id/Button07"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="制作G文件"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                     </TableRow>
-                    <TableRow
-                        android:id="@+id/TableRow03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
 
-                    </TableRow>
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:background="@android:drawable/editbox_background"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent">
+                        android:layout_height="fill_parent"
+                        android:weightSum="1">
                         <ScrollView
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent">
                             <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:text="接收区"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:hint="接收区"
                                 android:id="@+id/textView" />
                          </ScrollView>
                     </LinearLayout>
                 </TableLayout>
             </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <LinearLayout
@@ -105,26 +121,31 @@
                 android:layout_weight="1.0">
                 <TableLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="fill_parent"
+                   >
                     <TableRow
                         android:id="@+id/TableRow01"
                         android:layout_width="wrap_content"
-                        android:layout_height="fill_parent">
+                        android:layout_height="fill_parent"
+                      >
+
                         <CheckedTextView
                             android:textColor="@android:color/black"
                             android:gravity="center"
+
                             android:id="@+id/SensorHigh"
                             android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
-                            android:text="强光"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="?android:attr/listChoiceIndicatorSingle"
+                            android:text="强光测试"
+                            android:textSize="12dp"
                             android:layout_centerVertical="true"
-                            android:layout_weight="1.0"/>
+                            />
 
 
                         <Button
                             android:id="@+id/Button04"
-                            android:layout_width="1.0dip"
+                            android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="X轴+"
                             android:width="1.0dip"
@@ -143,13 +164,14 @@
                     <TableRow
                         android:id="@+id/tableRow1"
                         android:layout_width="wrap_content"
-                        android:layout_height="fill_parent">
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0">
                         <Button
                             android:id="@+id/button8"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:text="Y轴-"
-                            android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
+                            style="?android:attr/buttonStyleSmall" />
                         <Button
                             android:id="@+id/button7"
                             android:layout_width="fill_parent"
@@ -173,17 +195,18 @@
                             android:gravity="center"
                             android:id="@+id/SensorLow"
                             android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
-                            android:text="弱光"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="?android:attr/listChoiceIndicatorSingle"
+                            android:text="弱光测试"
+                            android:textSize="12dp"
                             android:layout_centerVertical="true"
-                            android:layout_weight="1.0"/>
+                            />
 
                         <Button
                             android:id="@+id/Button02"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:text="Y轴-"
+                            android:text="X轴-"
                             android:layout_weight="1.0"
                             style="?android:attr/buttonStyleSmall" />
 
@@ -210,10 +233,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0">
-            <Button android:id="@+id/add"
+            <Button android:id="@+id/AddEquipment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="添加设备" />
+
             <ListView android:id="@+id/paired_devices"
                 android:layout_width="102.0dip"
                 android:layout_height="fill_parent"

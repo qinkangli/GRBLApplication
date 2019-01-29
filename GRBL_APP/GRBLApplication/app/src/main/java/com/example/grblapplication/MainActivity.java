@@ -20,22 +20,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.widget.Button;
+
+
+
 import java.util.ArrayList;
 import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    //本地蓝牙适配器
-    private BluetoothAdapter mBluetoothAdapter;
-    //用来存放搜到的蓝牙
-    private Set<BluetoothDevice> mDevices;
-    private ListView mListView;
-    private ArrayList mList;
-    private ArrayAdapter mAdapter;
-    private TextView mConnectedView;
 
-    private Switch aSwitch;
 
 
     @Override
@@ -44,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
         getSupportActionBar().hide();//隐藏标题栏
         setContentView(R.layout.activity_main);
+
+        Button FindEquipmentButton = (Button) findViewById(R.id.AddEquipment);
+        //添加蓝牙设备
+        FindEquipmentButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "添加设备", Toast.LENGTH_SHORT).show();
+                Intent intent =new Intent(MainActivity.this,DeviceListActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }
