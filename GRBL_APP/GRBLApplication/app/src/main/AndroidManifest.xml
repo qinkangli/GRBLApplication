@@ -31,9 +31,8 @@
         </activity>
         <activity
             android:name=".DeviceListActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:label="选取连接设备"
-            android:screenOrientation="landscape" />
+            android:label="选取要连接的设备"
+            />
     </application>
 
 </manifest>

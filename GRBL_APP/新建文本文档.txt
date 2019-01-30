@@ -1,39 +1,49 @@
-    /*
-       *getBondedDevices()获取已经匹配的设备列表，并以set集合的方式返回
-       *获取已经配对的设备
-  * */
-    private void setPairingDevice() {
-        Set<BluetoothDevice> devices=mBtAdapter.getBondedDevices();
-        if(devices.size()>0){ //存在已配对过的设备
-            //利用for循环读取每一个设备的信息
-            for(Iterator<BluetoothDevice> it = devices.iterator(); it.hasNext();){
-                BluetoothDevice btd=it.next();
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-            }
-        }else{
-            //不存在已经配对的蓝牙设备
-        }
-    }
-    // 创建一个接收ACTION_FOUND广播的BroadcastReceiver
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        <Button
+            android:id="@+id/btn_search_devices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开始搜索" />
 
-        public void onReceive(Context context, Intent intent) {
+        <Button
+            android:id="@+id/btn_close_devices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="停止搜索" />
+    </LinearLayout>
 
-            String action = intent.getAction();
+    <TextView
+        android:id="@+id/tv_bonded_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCCCCC"
+        android:padding="5dp"
+        android:text="已配对设备"
+        android:textSize="16sp" />
 
-            // 发现设备
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+    <ListView
+        android:id="@+id/list_bonded_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" />
 
-                // 从Intent中获取设备对象
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-
-                // 将设备名称和地址放入array adapter，以便在ListView中显示
-                mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-            }
-        }
-    };
-
-    // 注册BroadcastReceiver
-    IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-
-    registerReceiver(mReceiver, filter); // 不要忘了之后解除绑定
+    <TextView
+        android:id="@+id/tv_search_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCCCCC"
+        android:padding="5dp"
+        android:text="搜索到的设备"
+        android:textSize="16sp" />

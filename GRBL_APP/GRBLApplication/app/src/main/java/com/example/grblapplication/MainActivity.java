@@ -41,11 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().hide();//隐藏标题栏
         setContentView(R.layout.activity_main);
 
-
-
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 获得本机蓝牙适配器对象引用
-
-
 
         if (mBluetoothAdapter == null)
         {
@@ -128,7 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(intent, REQUEST_OPEN_BT_CODE);
                 }
+                if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
+                {
+                    Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
+                    startActivity(intent);
 
+                }
 
                 break;
 

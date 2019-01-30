@@ -1,21 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+
+    android:background="@color/blue_light"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_search_devices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开始搜索" />
+
+        <Button
+            android:id="@+id/btn_close_devices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="停止搜索" />
+    </LinearLayout>
 
     <TextView
-        android:layout_margin="10dp"
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_bonded_devices"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCCCCC"
+        android:padding="5dp"
+        android:text="已配对设备"
+        android:textSize="16sp" />
 
     <ListView
-        android:id="@+id/list_view"
+        android:id="@+id/list_bonded_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/tv_search_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCCCCC"
+        android:padding="5dp"
+        android:text="搜索到的设备"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/list_search_devices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/colorAccent"
-        android:dividerHeight="1dp" />
+        android:scrollbars="none" />
+
+
+
+
+
 </LinearLayout>
