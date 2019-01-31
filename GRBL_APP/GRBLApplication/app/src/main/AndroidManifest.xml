@@ -14,11 +14,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!-- MAIN界面强制竖屏 -->
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
         <!-- 开机初始界面强制竖屏 -->
         <activity
             android:name=".Splash"
@@ -29,9 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- MAIN界面强制竖屏 -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".DeviceListActivity"
             android:label="选取要连接的设备"
+           android:theme="@style/Theme.AppCompat.Dialog"
             />
     </application>
 

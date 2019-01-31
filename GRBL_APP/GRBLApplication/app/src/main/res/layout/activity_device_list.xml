@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/blue_light"
+    android:background="@color/black"
     android:orientation="vertical"
     android:padding="20dp" >
 
@@ -38,13 +38,15 @@
         android:background="#CCCCCC"
         android:padding="5dp"
         android:text="已配对设备"
+        android:textColor="@color/black"
         android:textSize="16sp" />
 
     <ListView
         android:id="@+id/list_bonded_devices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none" />
+
+        android:fadeScrollbars="true"/>
 
     <TextView
         android:id="@+id/tv_search_devices"
