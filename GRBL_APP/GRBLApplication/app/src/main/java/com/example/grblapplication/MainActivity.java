@@ -127,8 +127,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
                 {
                     Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
+                    // 设置蓝牙可见性，最多300秒
+                    intent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                    intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
                     startActivity(intent);
-
                 }
 
                 break;

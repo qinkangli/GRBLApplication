@@ -98,10 +98,8 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        // 检查设备是否支持蓝牙,若支持则打开
-        checkBluetooth();
 
-        // 获取所有已经绑定的蓝牙设备
+        //MainActivity已经开启蓝牙，所以获取所有已经绑定的蓝牙设备
         getBondedDevices();
 
         // 注册用以接收到已搜索到的蓝牙设备的receiver
@@ -115,35 +113,13 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
         registerReceiver(receiver, mFilter);
     }
 
-    /**
-     * 检查设备是否支持蓝牙,若支持则打开
-     */
-    private void checkBluetooth() {
-        adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter == null) {
-            // 设备不支持蓝牙
-            Toast.makeText(this, "设备不支持蓝牙", Toast.LENGTH_SHORT).show();
-        }else {
-            // 判断蓝牙是否打开，如果没有则打开蓝牙
-            // adapter.enable() 直接打开蓝牙，但是不会弹出提示，以下方式会提示用户是否打开
-            if (!adapter.isEnabled()) {
-                Intent intent = new Intent();
-                //打开蓝牙设备
-                intent.setAction(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                //是设备能够被搜索
-                intent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                // 设置蓝牙可见性，最多300秒
-                intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-                startActivity(intent);
-            }
-        }
-    }
 
     /**
      *  获取所有已经绑定的蓝牙设备
      */
     private void getBondedDevices() {
         bondedDevicesList.clear();
+        adapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> devices = adapter.getBondedDevices();
         bondedDevicesList.addAll(devices);
         //为listview动态设置高度（有多少条目就显示多少条目）

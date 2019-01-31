@@ -4,10 +4,13 @@ import java.util.List;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+
 
 public class MyListAdapter extends BaseAdapter {
     private Context mContext;
@@ -47,6 +50,7 @@ public class MyListAdapter extends BaseAdapter {
         device = mDevices.get(position);
         tv_device.setText(device.getName() + "（"  + device.getAddress()+"）");
         return tv_device;
+
     }
 
 }
