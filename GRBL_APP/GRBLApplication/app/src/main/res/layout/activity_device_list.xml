@@ -1,70 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/black"
-    android:orientation="vertical"
-    android:padding="20dp" >
-
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/btn_search_devices"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="查找设备" />
-
-        <Button
-            android:id="@+id/btn_close_devices"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="取消" />
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_search_devices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="开始搜索" />
+    <Button
+        android:id="@+id/btn_close_devices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="停止搜索"  />
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/list_bonded_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:fadeScrollbars="true"/>
-
     <TextView
-        android:id="@+id/tv_bonded_devices"
-        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#CCCCCC"
-        android:padding="5dp"
-        android:text="已配对设备"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_search_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#CCCCCC"
-        android:padding="5dp"
-        android:text="未配对设备"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
+        android:layout_centerVertical="true"
+        android:text="" />
     <ListView
-        android:id="@+id/list_search_devices"
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fadeScrollbars="true" />
-
+        android:divider="@color/grey"
+        android:dividerHeight="1dp" />
 
 </LinearLayout>
+
+
+

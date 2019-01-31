@@ -38,222 +38,183 @@ import java.util.UUID;
 import static android.view.Window.FEATURE_LEFT_ICON;
 
 
-public class DeviceListActivity extends Activity implements View.OnClickListener {
+public class DeviceListActivity extends Activity {
 
-    private Button btn_search_devices;
-    private Button btn_close_devices;
-    private ListView list_bonded_devices;
-    private List<BluetoothDevice> bondedDevicesList;
-    private MyListAdapter mBondedAdapter;
-    private ListView list_search_devices;
-    private List<BluetoothDevice> searchDevicesList;
-    private MyListAdapter mSearchAdapter;
-    private BluetoothAdapter adapter;
+    private final static int SEARCH_CODE = 0x123;
+    private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private static final String TAG = "MainActivity";
+
+    private List<BluetoothDevice> mBlueList = new ArrayList<>();
+
+    private ListView lisetView;
+    private TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        requestWindowFeature(5);
         setContentView(R.layout.activity_device_list);
-        setResult(0);
 
-        btn_search_devices = (Button) findViewById(R.id.btn_search_devices);
-        btn_search_devices.setOnClickListener(this);
-        btn_close_devices = (Button) findViewById(R.id.btn_close_devices);
-        btn_close_devices.setOnClickListener(this);
 
-        //已配对设备列表
-        list_bonded_devices = (ListView) findViewById(R.id.list_bonded_devices);
-        bondedDevicesList = new ArrayList<BluetoothDevice>();
-        //设置适配器
-        mBondedAdapter = new MyListAdapter(this, bondedDevicesList);
-        list_bonded_devices.setAdapter(mBondedAdapter);
+        lisetView = (ListView) findViewById(R.id.list_view);
+        textView = (TextView) findViewById(R.id.textView);
+        Button searchButton =(Button) findViewById(R.id.btn_search_devices);
+        Button cancelButton =(Button) findViewById(R.id.btn_close_devices);
 
-        list_bonded_devices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DeviceListActivity.this,"已经配对",Toast.LENGTH_SHORT).show();
-                try{
-                    //连接
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
+            public void onClick(View v) {
+                Toast.makeText(DeviceListActivity.this,"搜索中……",Toast.LENGTH_SHORT).show();
+                startDiscovery();
             }
         });
 
-        //搜索到的设备列表
-        list_search_devices = (ListView) findViewById(R.id.list_search_devices);
-        searchDevicesList = new ArrayList<BluetoothDevice>();
-        mSearchAdapter = new MyListAdapter(this, searchDevicesList);
-        list_search_devices.setAdapter(mSearchAdapter);
-        list_search_devices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BluetoothDevice device = searchDevicesList.get(position);
-                try {
-                    // 配对
-                    Method createBondMethod = BluetoothDevice.class.getMethod("createBond");
-                    createBondMethod.invoke(device);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            public void onClick(View v) {
+                if(mBluetoothAdapter.isDiscovering()){
+                    Toast.makeText(DeviceListActivity.this,"取消搜索中……",Toast.LENGTH_SHORT).show();
+                    mBluetoothAdapter.cancelDiscovery();
                 }
             }
         });
 
 
-        //MainActivity已经开启蓝牙，所以获取所有已经绑定的蓝牙设备
-        getBondedDevices();
-
-        // 注册用以接收到已搜索到的蓝牙设备的receiver
-        IntentFilter mFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        mFilter.addAction(BluetoothDevice.ACTION_FOUND);
-        mFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-        mFilter.addAction(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
-        mFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-        mFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        // 注册广播接收器，接收并处理搜索结果
-        registerReceiver(receiver, mFilter);
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        if (pairedDevices.size() > 0) {
+            for (BluetoothDevice device : pairedDevices) {// pairedDevices里面的内容
+                mBlueList.add(device);
+                MyAdapter madapter = new MyAdapter(DeviceListActivity.this, mBlueList);
+                lisetView.setAdapter(madapter);
+                madapter.notifyDataSetChanged();// 设置自动更新，当有设备添加的时候显示在屏幕上面
+                textView.setText("可选设备：" + mBlueList.size() + "个\u3000\u3000本机蓝牙地址：" + getBluetoothAddress());
+                Log.e(TAG, "onReceive: " + (device.getName() + ":" + device.getAddress() + " ：" + "m" + "\n"));
+            }
+        }
     }
 
+        /**
+         * 注册异步搜索蓝牙设备的广播
+         */
+        private void startDiscovery() {
+            // 找到设备的广播
+            IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            // 注册广播
+            registerReceiver(receiver, filter);
+            // 搜索完成的广播
+            IntentFilter filter1 = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+            // 注册广播
+            registerReceiver(receiver, filter1);
+            Log.e(TAG, "startDiscovery: 注册广播");
+            startScanBluth();
+        }
 
-    /**
-     *  获取所有已经绑定的蓝牙设备
-     */
-    private void getBondedDevices() {
-        bondedDevicesList.clear();
-        adapter = BluetoothAdapter.getDefaultAdapter();
-        Set<BluetoothDevice> devices = adapter.getBondedDevices();
-        bondedDevicesList.addAll(devices);
-        //为listview动态设置高度（有多少条目就显示多少条目）
-        setListViewHeight(bondedDevicesList.size());
-        mBondedAdapter.notifyDataSetChanged();
-    }
+        /**
+         * 广播接收器
+         */
+        private final BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                // 收到的广播类型
+                String action = intent.getAction();
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
+                // 发现设备的广播
+                if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                    // 从intent中获取设备
+                    BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                    // 没否配对
+                    if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
+                        if (!mBlueList.contains(device)) {
+                            mBlueList.add(device);
+                        }
+
+                        MyAdapter adapter = new MyAdapter(DeviceListActivity.this, mBlueList);
+                        lisetView.setAdapter(adapter);
+                        textView.setText("可选设备：" + mBlueList.size() + "个\u3000\u3000本机蓝牙地址：" + getBluetoothAddress());
+                        Log.e(TAG, "onReceive: " + mBlueList.size());
+                        Log.e(TAG, "onReceive: " + (device.getName() + ":" + device.getAddress() + " ：" + "m" + "\n"));
+                    }
+
+                    // 搜索完成
+                } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                    // 关闭进度条
+                    progressDialog.dismiss();
+                    Log.e(TAG, "onReceive: 搜索完成");
+                }
+            }
+        };
+
+
+
+        private ProgressDialog progressDialog;
+
+        /**
+         * 搜索蓝牙的方法
+         */
+        private void startScanBluth() {
+            // 判断是否在搜索,如果在搜索，就取消搜索
+            if (mBluetoothAdapter.isDiscovering()) {
+                mBluetoothAdapter.cancelDiscovery();
+            }
+            // 开始搜索
+            mBluetoothAdapter.startDiscovery();
+            if (progressDialog == null) {
+                progressDialog = new ProgressDialog(this);
+            }
+            progressDialog.setMessage("正在搜索，请稍后！");
+            progressDialog.show();
+        }
+
 
         @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            // 获得已经搜索到的蓝牙设备
-            if (action.equals(BluetoothDevice.ACTION_FOUND)) {
-                BluetoothDevice device = intent
-                        .getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // 搜索到的不是已经绑定的蓝牙设备
-                if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
-                    // 防止重复添加
-                   if (searchDevicesList.indexOf(device) == -1)
-                        searchDevicesList.add(device);
-                    mSearchAdapter.notifyDataSetChanged();
-                }
-                // 搜索完成
-            } else if (action
-                    .equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
-                setProgressBarIndeterminateVisibility(false);
-                setTitle("搜索完成");
-            } else if (action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
-                // 状态改变的广播
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                String name = device.getName();
-                if (device.getName().equalsIgnoreCase(name)) {
-                    int connectState = device.getBondState();
-                    switch (connectState) {
-                        case BluetoothDevice.BOND_NONE:  //10
-                            Toast.makeText(DeviceListActivity.this, "取消配对："+device.getName(), Toast.LENGTH_SHORT).show();
-                            break;
-                        case BluetoothDevice.BOND_BONDING:  //11
-                            Toast.makeText(DeviceListActivity.this, "正在配对："+device.getName(), Toast.LENGTH_SHORT).show();
-                            break;
-                        case BluetoothDevice.BOND_BONDED:   //12
-                            Toast.makeText(DeviceListActivity.this, "完成配对："+device.getName(), Toast.LENGTH_SHORT).show();
-                            getBondedDevices();
-                            try {
-                                // 连接
-                                connect(device);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            break;
-                    }
-                }
+        protected void onDestroy() {
+            super.onDestroy();
+            if (receiver != null) {
+                //取消注册,防止内存泄露（onDestroy被回调代不代表Activity被回收？：具体回收看系统，由GC回收，同时广播会注册到系统
+                //管理的ams中，即使activity被回收，reciver也不会被回收，所以一定要取消注册），
+                unregisterReceiver(receiver);
             }
         }
-    };
 
-    //蓝牙设备的连接（客户端）
-    private void connect(BluetoothDevice device) {
-        // 固定的UUID
-        final String SPP_UUID = "00001101-0000-1000-8000-00805F9B34FB";
-        UUID uuid = UUID.fromString(SPP_UUID);
-        try {
-            BluetoothSocket socket = device.createRfcommSocketToServiceRecord(uuid);
-            socket.connect();
-//			OutputStream outputStream = socket.getOutputStream();
-//	        InputStream inputStream = socket.getInputStream();
-//	        outputStream.write("StartOnNet\n".getBytes());
-//	        outputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_search_devices:
-                setProgressBarIndeterminateVisibility(true);
-                setTitle("正在扫描....");
-                searchDevicesList.clear();
-                mSearchAdapter.notifyDataSetChanged();
-                // 如果正在搜索，就先取消搜索
-                if (!adapter.isDiscovering()) {
-                    adapter.cancelDiscovery();
+        /**
+         * 获取本机蓝牙地址
+         */
+        private String getBluetoothAddress() {
+            try {
+                BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                Field field = bluetoothAdapter.getClass().getDeclaredField("mService");
+                // 参数值为true，禁用访问控制检查
+                field.setAccessible(true);
+                Object bluetoothManagerService = field.get(bluetoothAdapter);
+                if (bluetoothManagerService == null) {
+                    return null;
                 }
-                // 开始搜索蓝牙设备,搜索到的蓝牙设备通过广播返回
-                adapter.startDiscovery();
-                break;
-            case R.id.btn_close_devices:
-                // 如果正在搜索，就先取消搜索
-                if (adapter.isDiscovering()) {
-                    adapter.cancelDiscovery();
+                Method method = bluetoothManagerService.getClass().getMethod("getAddress");
+                Object address = method.invoke(bluetoothManagerService);
+                if (address != null && address instanceof String) {
+                    return (String) address;
+                } else {
+                    return null;
                 }
-                break;
+                //抛一个总异常省的一堆代码...
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
-    }
-
-    //为listview动态设置高度（有多少条目就显示多少条目）
-    private void setListViewHeight(int count) {
-        if (mBondedAdapter==null) {
-            return ;
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode==SEARCH_CODE){
+                startDiscovery();
+            }
+            Log.e(TAG, "onActivityResult: "+requestCode );
+            Log.e(TAG, "onActivityResult: "+resultCode );
+            Log.e(TAG, "onActivityResult: "+requestCode );
         }
-        int totalHeight = 0;
-        for (int i = 0; i < count; i++) {
-            View listItem = mBondedAdapter.getView(i, null, list_bonded_devices);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = list_bonded_devices.getLayoutParams();
-        params.height = totalHeight;
-        list_bonded_devices.setLayoutParams(params);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //解除注册
-        unregisterReceiver(receiver);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getBondedDevices();
-    }
-
 }
 
 
