@@ -29,6 +29,13 @@
             android:text="取消" />
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/list_bonded_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:fadeScrollbars="true"/>
+
     <TextView
         android:id="@+id/tv_bonded_devices"
         android:layout_width="match_parent"
@@ -40,13 +47,6 @@
         android:text="已配对设备"
         android:textColor="@color/black"
         android:textSize="16sp" />
-
-    <ListView
-        android:id="@+id/list_bonded_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:fadeScrollbars="true"/>
 
     <TextView
         android:id="@+id/tv_search_devices"

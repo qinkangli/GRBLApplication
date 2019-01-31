@@ -1,5 +1,6 @@
 package com.example.grblapplication;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothSocket;
 import android.support.v7.app.AppCompatActivity;
 import android.app.ProgressDialog;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,8 +35,10 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
+import static android.view.Window.FEATURE_LEFT_ICON;
 
-public class DeviceListActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class DeviceListActivity extends Activity implements View.OnClickListener {
 
     private Button btn_search_devices;
     private Button btn_close_devices;
@@ -50,8 +54,9 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setTitle("选取连接设备");
+        requestWindowFeature(5);
         setContentView(R.layout.activity_device_list);
+        setResult(0);
 
         btn_search_devices = (Button) findViewById(R.id.btn_search_devices);
         btn_search_devices.setOnClickListener(this);
@@ -139,9 +144,8 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
                 // 搜索到的不是已经绑定的蓝牙设备
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                     // 防止重复添加
-                    if (searchDevicesList.indexOf(device) == -1)
+                   if (searchDevicesList.indexOf(device) == -1)
                         searchDevicesList.add(device);
-                    //devicesList.add("未配对 | "+device.getName() + "（"  + device.getAddress()+"）");
                     mSearchAdapter.notifyDataSetChanged();
                 }
                 // 搜索完成

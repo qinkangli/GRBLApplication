@@ -48,7 +48,7 @@ public class MyListAdapter extends BaseAdapter {
         tv_device.setTextSize(16);
         tv_device.setPadding(10, 15, 10, 15);
         device = mDevices.get(position);
-        tv_device.setText(device.getName() + "（"  + device.getAddress()+"）");
+        tv_device.setText(device.getName() + "("  + device.getAddress()+")");
         return tv_device;
 
     }
