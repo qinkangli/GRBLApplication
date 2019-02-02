@@ -1,49 +1,58 @@
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/btn_search_devices"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="开始搜索" />
-
-        <Button
-            android:id="@+id/btn_close_devices"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="停止搜索" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_bonded_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#CCCCCC"
-        android:padding="5dp"
-        android:text="已配对设备"
-        android:textSize="16sp" />
-
-    <ListView
-        android:id="@+id/list_bonded_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none" />
-
-    <TextView
-        android:id="@+id/tv_search_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#CCCCCC"
-        android:padding="5dp"
-        android:text="搜索到的设备"
-        android:textSize="16sp" />
+                try
+                {
+                    this.Bluetoothsocket = this.mBluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+                }
+                catch (IOException localIOException1)
+                {
+                    try
+                    {
+                        this.Bluetoothsocket.connect();
+                        Toast.makeText(this, "连接" + this.mBluetoothDevice.getName() + "成功！", Toast.LENGTH_SHORT).show();
+                        this.mPairedDevicesArrayAdapter.add(this.mBluetoothDevice.getName() + "\n" + this.mBluetoothDevice.getAddress());
+                        SharedPreferences.Editor localEditor = getSharedPreferences("Add", 0).edit();
+                        localEditor.putString(String.valueOf(0), this.mBluetoothDevice.getName());
+                        localEditor.putString(String.valueOf(1), this.mBluetoothDevice.getAddress());
+                        localEditor.commit();
+                        this.btnadd.setText(getResources().getString(R.string.DeleteEquipment));
+                        IntentFilter localIntentFilter = new IntentFilter("android.bluetooth.device.action.ACL_DISCONNECTED");
+                        registerReceiver(this.mReceiver, localIntentFilter);
+                    }
+                    catch (IOException localIOException2)
+                    {
+/*                        try
+                        {
+                            while (true)
+                            {
+                                this.is = this.Bluetoothsocket.getInputStream();
+                                if (!this.bThread)
+                                {
+                                    this.ReadThread.start();
+                                    this.bThread = true;
+                                    return;
+                                    localIOException1 = localIOException1;
+                                    Toast.makeText(this, "连接失败,无法得到Socket！" + localIOException1, 0).show();
+                                    continue;
+                                    localIOException2 = localIOException2;
+                                    this.btnadd.setText(getResources().getString(R.string.AddEquipment));
+                                    try
+                                    {
+                                        Toast.makeText(this, "连接失败！" + localIOException2, Toast.LENGTH_SHORT).show();
+                                        this.Bluetoothsocket.close();
+                                        this.Bluetoothsocket = null;
+                                        return;
+                                    }
+                                    catch (IOException localIOException3)
+                                    {
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                        catch (IOException localIOException4)
+                        {
+                            Toast.makeText(this, "异常：打开接收线程！" + localIOException4, 0).show();
+                            this.btnadd.setText(getResources().getString(R.string.AddEquipment));
+                            return;
+                        }*/
+                    }
+                }

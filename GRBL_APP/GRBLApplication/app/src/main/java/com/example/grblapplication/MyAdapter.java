@@ -27,6 +27,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
 
+
     @Override
     public int getCount() {
         return mBluelist.size();
@@ -92,7 +93,6 @@ public class MyAdapter extends BaseAdapter {
         //blueDevice.fetchUuidsWithSdp(); boolean类型
         return view;
     }
-
 
     private class ViewHolder {
         TextView deviceName;

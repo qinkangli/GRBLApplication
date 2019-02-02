@@ -7,5 +7,5 @@
     <string name="app_use">设置</string>
     <string name="app_about">关于</string>
     <string name="usetext">字符格式显示</string>
-    <string name="delete">删除设备</string>
+    <string name="DeleteEquipment">删除设备</string>
 </resources>

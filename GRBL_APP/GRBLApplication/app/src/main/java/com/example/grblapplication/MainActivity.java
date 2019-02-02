@@ -1,5 +1,6 @@
 package com.example.grblapplication;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -23,15 +24,28 @@ import android.widget.Toast;
 import android.widget.Button;
 import android.util.Log;
 import android.view.View;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private BluetoothAdapter mBluetoothAdapter; // 本机蓝牙适配器对象
-    private static String TAG = "Bluetooth_State";
+    private BluetoothDevice mBluetoothDevice;
+
+    BluetoothSocket Bluetoothsocket = null;
+
+    private Button btnadd;
+
+
+    private static String TAG = "MainActivity";
+    private ArrayList<String> mPairedDevicesArrayAdapter;
 
 
     @Override
@@ -46,8 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mBluetoothAdapter == null)
         {
             toast("该设备不支持蓝牙功能！");
+            //finish();//直接退出
             return;
         }
+
+
         int initialBTState = mBluetoothAdapter.getState();
         printBTState(initialBTState); // 初始时蓝牙状态
 
@@ -58,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void InitialViews()
     {
+
+
         Button FindEquipmentButton = (Button) findViewById(R.id.AddEquipment);
         Button XUp = (Button) findViewById(R.id.XUp);
         Button XDown = (Button) findViewById(R.id.XDown);
@@ -70,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         XDown.setOnClickListener(this);
         YUp.setOnClickListener(this);
         YDown.setOnClickListener(this);
+
+
+
     }
 
 
@@ -106,8 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
     }
 
-    private final int REQUEST_OPEN_BT_CODE = 1;
-    private final int REQUEST_DISCOVERY_BT_CODE = 2;
+
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -115,28 +136,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //在拨号界面输入 *#*#2846579#*#*
         //记得重启哈
         boolean wasBtOpened = mBluetoothAdapter.isEnabled(); // 是否已经打开
+        if(!wasBtOpened){
+            mBluetoothAdapter.enable();//强制打开
+        }
+
         switch (v.getId())
         {
             case R.id.AddEquipment:
                 Log.e(TAG, " ## click btOpenBySystem ##");
-                if (!wasBtOpened) //未打开蓝牙，才需要打开蓝牙
-                {
-                    Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(intent, REQUEST_OPEN_BT_CODE);
-                }
                 if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
                 {
-                    Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
                     // 设置蓝牙可见性，最多300秒
+                    Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
                     intent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
                     intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-                    startActivity(intent);
+                    MainActivity.this.startActivityForResult(intent, 1);
                 }
-
+                else{}
                 break;
 
 
 
+        }
+    }
+
+    private InputStream is;
+    @Override
+    protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
+    {
+        switch (paramInt1)
+        {
+            case 1:
+                String str1= paramIntent.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+                Log.e(TAG,"DeviceListActivity返回的MAC地址:"+str1);
+                this.mBluetoothDevice = this.mBluetoothAdapter.getRemoteDevice(str1);//根据蓝牙地址获取远程蓝牙设备
+
+
+                break;
+
+            case 2:
+                break;
+
+            default:
+                break;
+
+        }
+/*
+        String str1 = paramIntent.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+
+        Log.e(TAG,str1);
+
+
+        //根据蓝牙地址获取远程蓝牙设备
+        this.mBluetoothDevice = this.mBluetoothAdapter.getRemoteDevice(str1);
+        this.mPairedDevicesArrayAdapter.add(this.mBluetoothDevice.getName() + "\n" + this.mBluetoothDevice.getAddress());
+
+
+        Log.e(TAG, mBluetoothDevice.getName() + ":" + mBluetoothDevice.getAddress() );*/
+
+    }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver()
+    {
+        public void onReceive(Context paramContext, Intent paramIntent)
+        {
+            if ("android.bluetooth.device.action.ACL_DISCONNECTED".equals(paramIntent.getAction()))
+                MainActivity.this.disconnect();
+        }
+    };
+    boolean bRun = true;
+    public void disconnect()
+    {
+        unregisterReceiver(this.mReceiver);
+        SharedPreferences.Editor localEditor = getSharedPreferences("Add", 0).edit();
+        localEditor.clear();
+        localEditor.commit();
+        this.mPairedDevicesArrayAdapter.clear();
+        Toast.makeText(this, "线路已断开，请重新连接！", Toast.LENGTH_SHORT).show();
+        try
+        {
+            this.bRun = false;
+           // this.is.close();
+            this.Bluetoothsocket.close();
+            this.Bluetoothsocket = null;
+            this.bRun = false;
+            this.btnadd.setText(getResources().getString(R.string.AddEquipment));
+            return;
+        }
+        catch (IOException localIOException)
+        {
         }
     }
 
