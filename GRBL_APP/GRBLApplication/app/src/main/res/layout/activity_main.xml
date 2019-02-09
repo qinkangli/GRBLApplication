@@ -14,19 +14,38 @@
         android:layout_height="fill_parent"
         android:layout_weight="9.05">
 
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="285dp"
+            android:orientation="vertical">
+
+
         <ScrollView
             android:id="@+id/ScrollView01"
             android:background="@android:drawable/editbox_background"
             android:scrollbars="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1.0">
+
             <TextView
-                android:id="@+id/in"
+                android:id="@+id/TextIn"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:hint="发送区" />
+
         </ScrollView>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditText"
+                android:hint="发送区"
+                android:maxLines="2" />
+
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -78,6 +97,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:weightSum="1">
+
                         <ScrollView
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent">

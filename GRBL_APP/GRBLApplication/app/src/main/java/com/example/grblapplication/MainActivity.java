@@ -1,10 +1,12 @@
 package com.example.grblapplication;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.support.v7.widget.SwitchCompat;
@@ -27,6 +29,7 @@ import android.view.View;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -39,13 +42,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BluetoothAdapter mBluetoothAdapter; // 本机蓝牙适配器对象
     private BluetoothDevice mBluetoothDevice;
 
-    BluetoothSocket Bluetoothsocket = null;
+    private BluetoothSocket Bluetoothsocket = null;//客户端
 
-    private Button btnadd;
+
+    //一些需要全局用到的控件
+    private Button FindEquipmentButton;
+    private TextView SendTextView;
+    private EditText editText;
+
+
+    private InputStream is;
+    private OutputStream os;
 
 
     private static String TAG = "MainActivity";
     private ArrayList<String> mPairedDevicesArrayAdapter;
+
+
+    static String[] sendstr;
+    static String[] str;
 
 
     @Override
@@ -56,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 获得本机蓝牙适配器对象引用
+
 
         if (mBluetoothAdapter == null)
         {
@@ -71,13 +87,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         InitialViews();
 
 
+
     }
 
     private void InitialViews()
     {
+        
+        FindEquipmentButton = (Button) findViewById(R.id.AddEquipment);
+        Button SendFile= (Button) findViewById(R.id.SendFile);
+        Button OpenFile= (Button) findViewById(R.id.OpenFile);
 
 
-        Button FindEquipmentButton = (Button) findViewById(R.id.AddEquipment);
+        SendTextView = (TextView) findViewById(R.id.TextIn);
+        editText = (EditText) findViewById(R.id.EditText);
+
         Button XUp = (Button) findViewById(R.id.XUp);
         Button XDown = (Button) findViewById(R.id.XDown);
 
@@ -85,15 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button YDown = (Button) findViewById(R.id.YDown);
 
         FindEquipmentButton.setOnClickListener(this);
+        SendFile.setOnClickListener(this);
+        OpenFile.setOnClickListener(this);
         XUp.setOnClickListener(this);
         XDown.setOnClickListener(this);
         YUp.setOnClickListener(this);
         YDown.setOnClickListener(this);
-
-
-
     }
-
 
 
 
@@ -129,6 +150,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
+
+
+
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -155,12 +180,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else{}
                 break;
 
+            case R.id.SendFile:
+
+                try {
+                    os.write("Hello world!\n".getBytes("utf-8"));
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
 
 
+            case R.id.XUp://X轴前进
+                try {
+                    os.write("G01 X+1\n".getBytes("utf-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+                break;
+
+            case R.id.XDown://X轴后退
+                try {
+                    os.write("G01 X-1\n".getBytes("utf-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+
+            case R.id.YUp://Y轴前进
+                try {
+                    os.write("G01 Y+1\n".getBytes("utf-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case R.id.YDown://Y轴后退
+                try {
+                    os.write("G01 Y-1\n".getBytes("utf-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
-    private InputStream is;
+
     @Override
     protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
     {
@@ -168,8 +236,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case 1:
                 String str1= paramIntent.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+
                 Log.e(TAG,"DeviceListActivity返回的MAC地址:"+str1);
                 this.mBluetoothDevice = this.mBluetoothAdapter.getRemoteDevice(str1);//根据蓝牙地址获取远程蓝牙设备
+
+                try{
+
+                    Bluetoothsocket = mBluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+                    this.Bluetoothsocket.connect();
+                    Toast.makeText(this, "连接" + this.mBluetoothDevice.getName() + "成功！",Toast.LENGTH_SHORT).show();
+
+                    os=Bluetoothsocket.getOutputStream();
+                    FindEquipmentButton.setText(getResources().getString(R.string.DeleteEquipment));
+                    if(os != null)
+                    {
+                        os.write("Hello world! ".getBytes("utf-8"));
+                    }
+                }
+                catch (IOException e1){
+                    System.out.println("IOException:"+e1);
+                }
+
 
 
                 break;
@@ -181,18 +268,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
-/*
-        String str1 = paramIntent.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-
-        Log.e(TAG,str1);
-
-
-        //根据蓝牙地址获取远程蓝牙设备
-        this.mBluetoothDevice = this.mBluetoothAdapter.getRemoteDevice(str1);
-        this.mPairedDevicesArrayAdapter.add(this.mBluetoothDevice.getName() + "\n" + this.mBluetoothDevice.getAddress());
-
-
-        Log.e(TAG, mBluetoothDevice.getName() + ":" + mBluetoothDevice.getAddress() );*/
 
     }
 
@@ -216,11 +291,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try
         {
             this.bRun = false;
-           // this.is.close();
+            this.is.close();
             this.Bluetoothsocket.close();
             this.Bluetoothsocket = null;
             this.bRun = false;
-            this.btnadd.setText(getResources().getString(R.string.AddEquipment));
+            this.FindEquipmentButton.setText(getResources().getString(R.string.AddEquipment));
             return;
         }
         catch (IOException localIOException)
