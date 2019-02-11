@@ -1,8 +1,7 @@
 package com.example.grblapplication;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothSocket;
-import android.support.v7.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothAdapter;
@@ -13,30 +12,21 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.IOException;
+import android.widget.ListView;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.UUID;
-
-import static android.view.Window.FEATURE_LEFT_ICON;
-
 
 public class DeviceListActivity extends Activity {
 
@@ -223,7 +213,7 @@ public class DeviceListActivity extends Activity {
 
     private void ReturnData(String paramString) {
         Intent localIntent = new Intent();
-        localIntent.putExtra(EXTRA_DEVICE_ADDRESS, paramString);
+        localIntent.putExtra(EXTRA_DEVICE_ADDRESS, paramString);//返回的MAC地址
         setResult(-1, localIntent);
         finish();//结束当前活动
     }

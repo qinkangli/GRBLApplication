@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <!-- 开机初始界面强制竖屏 -->
         <activity
             android:name=".Splash"
@@ -33,8 +33,8 @@
             android:name=".DeviceListActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="选取连接的设备"
-            android:theme="@android:style/Theme.Dialog"
-            />
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".MakeGcodeActivity"></activity>
     </application>
 
 </manifest>

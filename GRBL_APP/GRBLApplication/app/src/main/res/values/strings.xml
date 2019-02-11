@@ -8,4 +8,7 @@
     <string name="app_about">关于</string>
     <string name="usetext">字符格式显示</string>
     <string name="DeleteEquipment">删除设备</string>
+
+    <string name="title_activity_make_gcode">MakeGcodeActivity</string>
+
 </resources>

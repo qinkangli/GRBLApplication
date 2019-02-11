@@ -32,6 +32,7 @@
                 android:id="@+id/TextIn"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:textColor="@color/tab_text_selected"
                 android:hint="发送区" />
 
         </ScrollView>
@@ -40,9 +41,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/EditText"
-                android:hint="发送区"
+                android:hint="请输入你所需要发送的内容:"
                 android:maxLines="2" />
-
 
         </LinearLayout>
 
@@ -68,18 +68,18 @@
                         android:layout_height="fill_parent">
 
                         <Button
-                            android:id="@+id/OpenFile"
+                            android:id="@+id/Send"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:text="打开文件"
+                            android:text="发送"
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
 
                         <Button
-                            android:id="@+id/SendFile"
+                            android:id="@+id/OpenFile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="发送文件"
+                            android:text="打开文件"
 
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                         <Button
@@ -226,7 +226,7 @@
                             android:visibility="invisible"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:text="X轴-"
+
                             android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
                     </TableRow>
                 </TableLayout>
@@ -247,13 +247,19 @@
             <Button android:id="@+id/AddEquipment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="添加设备" />
 
-            <ListView android:id="@+id/paired_devices"
+                android:text="添加设备" />
+            <TextView
+                android:id="@+id/device_name"
                 android:layout_width="102.0dip"
                 android:layout_height="fill_parent"
                 android:stackFromBottom="true"
-                android:layout_weight="1.0" />
+                android:textSize="15dp"
+
+                android:textColor="@color/tab_text_selected"
+                android:layout_weight="1.0"/>
+
+
         </LinearLayout>
         <RelativeLayout
             android:layout_width="159.0dip"

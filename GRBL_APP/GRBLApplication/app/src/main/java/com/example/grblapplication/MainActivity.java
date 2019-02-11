@@ -30,6 +30,7 @@ import android.view.View;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button FindEquipmentButton;
     private TextView SendTextView;
     private EditText editText;
+    private ListView listView;//显示连接设备的名称及MAC地址的ListVIew
+    private TextView DeviceName;
 
 
     private InputStream is;
@@ -56,11 +59,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private static String TAG = "MainActivity";
-    private ArrayList<String> mPairedDevicesArrayAdapter;
+
 
 
     static String[] sendstr;
     static String[] str;
+
+
+    String EditStr=null;
+
+
+
+    private int flag=0;
+    boolean isConnect=false;
+
+
+
+
 
 
     @Override
@@ -73,31 +88,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 获得本机蓝牙适配器对象引用
 
 
-        if (mBluetoothAdapter == null)
-        {
-            toast("该设备不支持蓝牙功能！");
-            //finish();//直接退出
-            return;
-        }
 
 
-        int initialBTState = mBluetoothAdapter.getState();
-        printBTState(initialBTState); // 初始时蓝牙状态
 
         InitialViews();
-
 
 
     }
 
     private void InitialViews()
     {
-        
+        int initialBTState = mBluetoothAdapter.getState();
+
+        if (mBluetoothAdapter == null)
+        {
+            toast("该设备不支持蓝牙功能！");
+            finish();//直接退出
+            return;
+        }
+
+        printBTState(initialBTState); // 显示初始时蓝牙状态
+
+
         FindEquipmentButton = (Button) findViewById(R.id.AddEquipment);
-        Button SendFile= (Button) findViewById(R.id.SendFile);
+        Button SendFile= (Button) findViewById(R.id.Send);
         Button OpenFile= (Button) findViewById(R.id.OpenFile);
+        Button Clear = (Button) findViewById(R.id.rec);
 
-
+        DeviceName = (TextView) findViewById(R.id.device_name);//连接上的设备
         SendTextView = (TextView) findViewById(R.id.TextIn);
         editText = (EditText) findViewById(R.id.EditText);
 
@@ -108,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button YDown = (Button) findViewById(R.id.YDown);
 
         FindEquipmentButton.setOnClickListener(this);
+        Clear.setOnClickListener(this);
         SendFile.setOnClickListener(this);
         OpenFile.setOnClickListener(this);
         XUp.setOnClickListener(this);
@@ -168,30 +187,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.AddEquipment:
-                Log.e(TAG, " ## click btOpenBySystem ##");
-                if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
-                {
-                    // 设置蓝牙可见性，最多300秒
-                    Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
-                    intent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                    intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-                    MainActivity.this.startActivityForResult(intent, 1);
+                if(flag==0){
+                    Log.e(TAG, " ## click btOpenBySystem ##");
+                    if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
+                    {
+                        // 设置蓝牙可见性，最多300秒
+                        Intent intent = new Intent(MainActivity.this,DeviceListActivity.class);
+                        intent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                        intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+                        MainActivity.this.startActivityForResult(intent, 1);
+                    }
+                    else{}
                 }
-                else{}
+                else{
+
+                    DeviceName.setText("");
+                    this.FindEquipmentButton.setText(getResources().getString(R.string.AddEquipment));
+                    flag=0;
+
+                }
+
                 break;
 
-            case R.id.SendFile:
 
-                try {
-                    os.write("Hello world!\n".getBytes("utf-8"));
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
 
 
             case R.id.XUp://X轴前进
+
                 try {
                     os.write("G01 X+1\n".getBytes("utf-8"));
                 } catch (IOException e) {
@@ -225,6 +247,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.printStackTrace();
                 }
                 break;
+
+            case R.id.Send:
+                if(isConnect==false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+                }
+                else{
+                    EditStr=editText.getText().toString();
+                    SendTextView.setText(EditStr);
+
+                    try{
+
+                        os.write(EditStr.getBytes("gbk"));//发送内容
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+
+
+                }
+                break;
+            case R.id.rec:
+                SendTextView.getText();
+                SendTextView.setText("");
+                break;
         }
     }
 
@@ -239,22 +284,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Log.e(TAG,"DeviceListActivity返回的MAC地址:"+str1);
                 this.mBluetoothDevice = this.mBluetoothAdapter.getRemoteDevice(str1);//根据蓝牙地址获取远程蓝牙设备
-
                 try{
 
                     Bluetoothsocket = mBluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
                     this.Bluetoothsocket.connect();
+                    DeviceName.setText(mBluetoothDevice.getName()+'\n'+mBluetoothDevice.getAddress());
                     Toast.makeText(this, "连接" + this.mBluetoothDevice.getName() + "成功！",Toast.LENGTH_SHORT).show();
-
+                    flag=1;
+                    isConnect=true;
                     os=Bluetoothsocket.getOutputStream();
                     FindEquipmentButton.setText(getResources().getString(R.string.DeleteEquipment));
                     if(os != null)
                     {
+
                         os.write("Hello world! ".getBytes("utf-8"));
                     }
                 }
                 catch (IOException e1){
+
                     System.out.println("IOException:"+e1);
+                    isConnect=false;
                 }
 
 
@@ -269,6 +318,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+    }
+
+
+
+    private byte[] getHexBytes(String message) {
+        int len = message.length() / 2;
+        char[] chars = message.toCharArray();
+        String[] hexStr = new String[len];
+        byte[] bytes = new byte[len];
+        for (int i = 0, j = 0; j < len; i += 2, j++) {
+            hexStr[j] = "" + chars[i] + chars[i + 1];
+            bytes[j] = (byte) Integer.parseInt(hexStr[j], 16);
+        }
+        return bytes;
     }
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver()
@@ -286,7 +349,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor localEditor = getSharedPreferences("Add", 0).edit();
         localEditor.clear();
         localEditor.commit();
-        this.mPairedDevicesArrayAdapter.clear();
+        DeviceName.setText("");
         Toast.makeText(this, "线路已断开，请重新连接！", Toast.LENGTH_SHORT).show();
         try
         {
