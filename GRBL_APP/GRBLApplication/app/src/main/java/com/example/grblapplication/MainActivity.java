@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.CheckedTextView;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -50,8 +51,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button FindEquipmentButton;
     private TextView SendTextView;
     private EditText editText;
-    private ListView listView;//显示连接设备的名称及MAC地址的ListVIew
-    private TextView DeviceName;
+    private CheckedTextView Hex;
+    private CheckedTextView SensorHigh;
+    private CheckedTextView SensorLow;
+
+    private TextView DeviceName;//显示连接设备的名称及MAC地址的TestView
 
 
     private InputStream is;
@@ -119,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SendTextView = (TextView) findViewById(R.id.TextIn);
         editText = (EditText) findViewById(R.id.EditText);
 
+        Hex= (CheckedTextView) findViewById(R.id.checkedTextView); //Hex复选框
+        SensorHigh = (CheckedTextView) findViewById(R.id.SensorHigh);
+        SensorLow = (CheckedTextView) findViewById(R.id.SensorLow);
+
         Button XUp = (Button) findViewById(R.id.XUp);
         Button XDown = (Button) findViewById(R.id.XDown);
 
@@ -126,6 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button YDown = (Button) findViewById(R.id.YDown);
 
         FindEquipmentButton.setOnClickListener(this);
+        Hex.setOnClickListener(this);
+        SensorHigh.setOnClickListener(this);
+        SensorLow.setOnClickListener(this);
         Clear.setOnClickListener(this);
         SendFile.setOnClickListener(this);
         OpenFile.setOnClickListener(this);
@@ -186,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId())
         {
-            case R.id.AddEquipment:
+            case R.id.AddEquipment://添加设备
                 if(flag==0){
                     Log.e(TAG, " ## click btOpenBySystem ##");
                     if(wasBtOpened)//蓝牙已开启，进入DeviceListActivity
@@ -203,6 +214,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     DeviceName.setText("");
                     this.FindEquipmentButton.setText(getResources().getString(R.string.AddEquipment));
+                    try {
+                        this.Bluetoothsocket.close();
+                        this.Bluetoothsocket = null;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     flag=0;
 
                 }
@@ -241,14 +259,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.YDown://Y轴后退
-                try {
-                    os.write("G01 Y-1\n".getBytes("utf-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (isConnect == false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+
                 }
+                else{
+                    try {
+                        os.write("G01 Y-1\n".getBytes("utf-8"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 break;
 
-            case R.id.Send:
+            case R.id.Send://发送
                 if(isConnect==false){
                     toast("蓝牙设备未连接，请先连接设备！");
                 }
@@ -257,8 +282,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     SendTextView.setText(EditStr);
 
                     try{
-
-                        os.write(EditStr.getBytes("gbk"));//发送内容
+                        os.write(EditStr.getBytes("gbk"));//发送内容串口助手实际上是将GBK转成utf-8串口助手
                     }catch (IOException e){
                         e.printStackTrace();
                     }
@@ -266,9 +290,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 break;
-            case R.id.rec:
+
+            case R.id.rec://清空接收
                 SendTextView.getText();
                 SendTextView.setText("");
+                break;
+
+            case R.id.checkedTextView:
+                Hex.toggle();
+
+                break;
+
+            case R.id.SensorHigh:
+                SensorHigh.toggle();
+                break;
+
+
+            case R.id.SensorLow:
+                SensorLow.toggle();
+
                 break;
         }
     }
