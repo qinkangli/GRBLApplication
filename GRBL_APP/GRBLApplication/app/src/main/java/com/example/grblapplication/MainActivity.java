@@ -31,7 +31,7 @@ import android.view.View;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URLEncoder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button OpenFile= (Button) findViewById(R.id.OpenFile);
         Button Clear = (Button) findViewById(R.id.rec);
 
+        Button MakeGCode = (Button) findViewById(R.id.MakeGCode);
+
         DeviceName = (TextView) findViewById(R.id.device_name);//连接上的设备
         SendTextView = (TextView) findViewById(R.id.TextIn);
         editText = (EditText) findViewById(R.id.EditText);
@@ -137,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Hex.setOnClickListener(this);
         SensorHigh.setOnClickListener(this);
         SensorLow.setOnClickListener(this);
+        MakeGCode.setOnClickListener(this);
         Clear.setOnClickListener(this);
         SendFile.setOnClickListener(this);
         OpenFile.setOnClickListener(this);
@@ -220,42 +223,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                     flag=0;
-
                 }
-
                 break;
 
 
 
 
             case R.id.XUp://X轴前进
-
-                try {
-                    os.write("G01 X+1\n".getBytes("utf-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (isConnect == false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+                }else {
+                    try {
+                        os.write("G01 X+1\n".getBytes("utf-8"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-
-
                 break;
 
             case R.id.XDown://X轴后退
-                try {
-                    os.write("G01 X-1\n".getBytes("utf-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (isConnect == false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+                }
+                else {
+                    try {
+                        os.write("G01 X-1\n".getBytes("utf-8"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 break;
 
             case R.id.YUp://Y轴前进
-                try {
-                    os.write("G01 Y+1\n".getBytes("utf-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+
+                if (isConnect == false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+
                 }
+                else {
+                    try {
+                        os.write("G01 Y+1\n".getBytes("utf-8"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 break;
 
             case R.id.YDown://Y轴后退
@@ -302,12 +316,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.SensorHigh:
-                SensorHigh.toggle();
+                if(isConnect==false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+                }
+                else {
+                    SensorHigh.toggle();
+                }
+
                 break;
 
 
             case R.id.SensorLow:
-                SensorLow.toggle();
+                if(isConnect==false){
+                    toast("蓝牙设备未连接，请先连接设备！");
+                }
+                else {
+                    SensorLow.toggle();
+                }
+
+
+                break;
+
+            case R.id.MakeGCode:
+                Intent intent = new Intent(MainActivity.this,MakeGcodeActivity.class);
+
+                MainActivity.this.startActivityForResult(intent, 2);
+
 
                 break;
         }
