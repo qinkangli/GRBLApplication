@@ -2,6 +2,7 @@ package com.example.grblapplication;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -48,6 +49,28 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
     private ImageView mImg;
     private static final int IMAGE = 3;
     private  String PicturePath= null;
+    private File outputFile;
+
+    float[][] GcodeArrayOfFloat;
+
+
+    Bitmap bitmap;
+
+
+
+    //G代码有关参数
+
+
+    float f1 =1.1f;
+    float f2 = 1.1f;
+    int i=1;
+    int j=1;
+    int k=0;
+    double d=0.5;
+
+
+
+
 
     private List<Integer> mDatas = new ArrayList<Integer>(Arrays.asList(
             R.drawable.test, R.drawable.test1, R.drawable.test2, R.drawable.test3,
@@ -58,6 +81,9 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
         getSupportActionBar().hide();//隐藏标题栏
         setContentView(R.layout.activity_make_gcode);
+
+
+        this.outputFile = new File("/storage/emulated/0//GRBL_Application/test.txt");
 
         Button FindImage = (Button) findViewById(R.id.FindImage);
         Button Opposite = (Button) findViewById(R.id.Opposite);
@@ -83,11 +109,8 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
     //加载图片
     private void displayImage(String imaePath){
        if(imaePath != null){
-           Bitmap bitmap = BitmapFactory.decodeFile(imaePath);
-           //将图片转化成BMP格式再变化成黑白形式
-           Bitmap newmap = convertToBlackWhite(bitmap);
-           mImg.setImageBitmap(newmap);
-           saveBmp(newmap);
+           bitmap = BitmapFactory.decodeFile(imaePath);
+           mImg.setImageBitmap(bitmap);
 
        }else {
            Toast.makeText(this,"fail to get image",Toast.LENGTH_SHORT).show();
@@ -95,36 +118,7 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    public void MakeGcode(String BmpPath){
 
-        //生成G代码的NC文件
-        FileOutputStream outputStream = null;
-        BufferedWriter writer = null;
-        File mfile = new File("/storage/emulated/0//GRBL_Application","text.nc");
-        if (!mfile.exists()){
-            try {
-                mfile.createNewFile();
-
-                outputStream = new FileOutputStream(mfile);
-                writer =  new BufferedWriter(new OutputStreamWriter(outputStream));
-                writer.write("M5\n");
-                writer.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-        if(BmpPath != null){
-
-
-
-
-        }else {
-            Toast.makeText(this,"fail to get image",Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
 
 
@@ -223,7 +217,7 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
         int[] pixels = new int[width * height]; // 通过位图的大小创建像素点数组
 
         bmp.getPixels(pixels, 0, width, 0, 0, width, height);
-        int alpha = 0xFF << 24;
+        int alpha = 0xFF << 24;//深度
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 int grey = pixels[width * i + j];
@@ -242,6 +236,7 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
         newBmp.setPixels(pixels, 0, width, 0, 0, width, height);
 
         Bitmap resizeBmp = ThumbnailUtils.extractThumbnail(newBmp, 560, 560);
+
         return resizeBmp;
 
     }
@@ -293,18 +288,6 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    public String saveNcFilePath() {
-        File NCFile = new File("/storage/emulated/0//GRBL_Application//NC_File");
-
-        if (!NCFile.exists()) {
-            //创建文件
-            NCFile.mkdirs();
-            //给一个吐司提示，显示创建成功
-            Log.e(TAG,"文件创建成功");
-        }
-        return "svbe";
-
-    }
 
 
 
@@ -350,6 +333,8 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
         return path;
     }
 
+    private ProgressDialog progressDialog;
+    Bitmap newmap;
 
     @Override
     public void onClick(View v) {
@@ -380,9 +365,19 @@ public class MakeGcodeActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.CreatGCode:
-                MakeGcode(PicturePath);
-                saveNcFilePath();
-                Log.e(TAG,PicturePath);
+                //将图片转化成BMP格式再变化成黑白形式
+
+                newmap = convertToBlackWhite(bitmap);
+
+
+                mImg.setImageBitmap(newmap);
+                //saveBmp(newmap);
+                //ArrayList localArrayList = GraycoderCore.convertToGCode(GcodeArrayOfFloat, i, j, k, d);
+               // GraycoderCore.writeToFile(this.outputFile, localArrayList);
+
+
+
+
 
 
 

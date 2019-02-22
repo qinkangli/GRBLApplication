@@ -373,7 +373,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(os != null)
                     {
 
-                        os.write("Hello world! ".getBytes("utf-8"));
+                        os.write("GRBL_Application Connection successfull\n".getBytes("utf-8"));
                     }
                 }
                 catch (IOException e1){

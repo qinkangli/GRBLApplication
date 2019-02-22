@@ -1,0 +1,27 @@
+
+T5C68 000:308 SEGGER J-Link V4.96d Log File (0000ms, 0266ms total)
+T5C68 000:308 DLL Compiled: Jan 29 2015 11:45:37 (0000ms, 0266ms total)
+T5C68 000:308 Logging started @ 2019-02-17 13:37 (0000ms, 0266ms total)
+T5C68 000:308 JLINK_SetWarnOutHandler(...) (0000ms, 0266ms total)
+T5C68 000:308 JLINK_OpenEx(...)
+Firmware: J-Link ARM V7 compiled Jun 20 2012 19:45:53
+Hardware: V7.00
+S/N: 19087913
+Feature(s): RDI, FlashDL, FlashBP, JFlash, GDBFull  returns O.K. (0260ms, 0526ms total)
+T5C68 000:568 JLINK_SetErrorOutHandler(...) (0000ms, 0526ms total)
+T5C68 000:568 JLINK_ExecCommand("ProjectFile = "C:\Users\Administrator\Desktop\GRBLApplication\STM32-GRBL²Î¿¼´úÂë\JLinkSettings.ini"", ...)  returns 0x00 (0000ms, 0526ms total)
+T5C68 000:579 JLINK_ExecCommand("Device = STM32F103C8", ...)Device "STM32F103C8" selected.  returns 0x00 (0004ms, 0530ms total)
+T5C68 000:583 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0530ms total)
+T5C68 000:583 JLINK_GetHardwareVersion()  returns 0x11170 (0000ms, 0530ms total)
+T5C68 000:583 JLINK_GetDLLVersion()  returns 49604 (0000ms, 0530ms total)
+T5C68 000:583 JLINK_GetFirmwareString(...) (0000ms, 0530ms total)
+T5C68 000:601 JLINK_GetDLLVersion()  returns 49604 (0000ms, 0530ms total)
+T5C68 000:601 JLINK_GetCompileDateTime() (0000ms, 0530ms total)
+T5C68 000:605 JLINK_GetFirmwareString(...) (0000ms, 0530ms total)
+T5C68 000:607 JLINK_GetHardwareVersion()  returns 0x11170 (0000ms, 0530ms total)
+T5C68 000:615 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0001ms, 0531ms total)
+T5C68 000:616 JLINK_SetSpeed(33000) (0001ms, 0532ms total)
+T5C68 000:617 JLINK_GetId()  returns 0x00000000 (0000ms, 0532ms total)
+T5C68 002:793 JLINK_Close() (0000ms, 0532ms total)
+T5C68 002:793  (0000ms, 0532ms total)
+T5C68 002:793 Closed (0000ms, 0532ms total)
