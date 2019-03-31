@@ -1,0 +1,56 @@
+Removed Pin From Net: NetName=PB3 Pin=USW1-1
+Removed Pin From Net: NetName=D1 Pin=USW1-2
+Removed Pin From Net: NetName=PA10 Pin=USW1-3
+Removed Pin From Net: NetName=D1 Pin=USW1-4
+Removed Pin From Net: NetName=D0 Pin=USW1-5
+Removed Pin From Net: NetName=PA9 Pin=USW1-6
+Removed Pin From Net: NetName=D0 Pin=USW1-7
+Removed Pin From Net: NetName=GND Pin=USW1-8
+Removed Pin From Net: NetName=BlueTXD Pin=USW1-9
+Removed Pin From Net: NetName=BlueRXD Pin=USW1-12
+Removed Pin From Net: NetName=GND Pin=USW1-15
+Removed Pin From Net: NetName=VCC Pin=USW1-16
+Removed Pin From Net: NetName=GND Pin=X轴A498模块-9
+Removed Pin From Net: NetName=GND Pin=Y轴A498模块-9
+Removed Member From Class: ClassName=CNC Member=USW1
+Change Component DesignItemId : Designator=X轴A498模块 Old DesignItemId=Mini MP3 Player New DesignItemId=DRV8825
+Change Component DesignItemId : Designator=Y轴A498模块 Old DesignItemId=Mini MP3 Player New DesignItemId=DRV8825
+Change Component Footprint: Designator=BlueJP Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPX Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPY Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Designator: OldDesignator=TFT1 NewDesignator=TFT显示屏1
+Change Component Designator: OldDesignator=TFT2 NewDesignator=TFT显示屏2
+Change Component Description : Designator=X轴A498模块 Old Description=MP3模块 New Description=步进电机驱动模块
+Change Component Description : Designator=Y轴A498模块 Old Description=MP3模块 New Description=步进电机驱动模块
+Change component parameters: Designator = "X轴A498模块"; Footprint = "DRV8825"; UniqueID = "\SYGBCCUW"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "步进电机驱动模块"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Y轴A498模块"; Footprint = "DRV8825"; UniqueID = "\UNKAKXCL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "步进电机驱动模块"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=BlueJP(XH2.54-WI-4P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=SWMode(KFT DIP-7X7)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "7*7自锁开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BlueJP-1
+Added Pin To Net: NetName=BlueRXD Pin=JPSTM1-7
+Added Pin To Net: NetName=BlueTXD Pin=JPSTM1-8
+Added Pin To Net: NetName=BlueRXD Pin=JPSTM11-7
+Added Pin To Net: NetName=BlueTXD Pin=JPSTM11-8
+Added Pin To Net: NetName=PA10 Pin=SWMode-2
+Added Pin To Net: NetName=D1 Pin=SWMode-3
+Added Pin To Net: NetName=D0 Pin=SWMode-4
+Added Pin To Net: NetName=PA9 Pin=SWMode-5
+Added Member To Class: ClassName=CNC Member=Component BlueJP HDR-1X4
+Added Member To Class: ClassName=CNC Member=Component SWMode KET 7X7
+Added Room: Name=CNC

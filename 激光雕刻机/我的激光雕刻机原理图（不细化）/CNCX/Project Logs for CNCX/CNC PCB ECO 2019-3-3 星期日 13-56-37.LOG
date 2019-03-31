@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=GND Pin=JPArduino1-3
+Removed Pin From Net: NetName=GND Pin=JPArduino11-3
+Removed Pin From Net: NetName=GND Pin=SW1-3
+Change Component Footprint: Designator=JPX Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPY Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Designator: OldDesignator=Spindle NewDesignator=Spindle_control
+Change Component Designator: OldDesignator=TFT1 NewDesignator=TFT显示屏1
+Change Component Designator: OldDesignator=TFT2 NewDesignator=TFT显示屏2
+Added Pin To Net: NetName=GND Pin=JPArduino1-4
+Added Pin To Net: NetName=GND Pin=JPArduino11-4
+Added Pin To Net: NetName=12V Pin=SW1-3
+Added Pin To Net: NetName=GND Pin=X轴A498模块-9
+Added Pin To Net: NetName=VCC Pin=X轴A498模块-10
+Added Pin To Net: NetName=GND Pin=Y轴A498模块-9
+Added Pin To Net: NetName=NetX轴A498模块_5 Pin=X轴A498模块-5
+Added Pin To Net: NetName=NetX轴A498模块_5 Pin=X轴A498模块-6
+Added Net: Name=NetX轴A498模块_5
+Added Pin To Net: NetName=NetY轴A498模块_5 Pin=Y轴A498模块-5
+Added Pin To Net: NetName=NetY轴A498模块_5 Pin=Y轴A498模块-6
+Added Net: Name=NetY轴A498模块_5
+Added Pin To Net: NetName=RST Pin=JPArduino1-3
+Added Pin To Net: NetName=RST Pin=JPArduino11-3
+Added Net: Name=RST
+Added Member To Class: ClassName=CNC Member=Component Spindle_control Key
+Added Room: Name=CNC

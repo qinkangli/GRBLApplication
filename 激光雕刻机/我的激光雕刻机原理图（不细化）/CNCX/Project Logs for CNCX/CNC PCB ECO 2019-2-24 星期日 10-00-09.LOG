@@ -1,0 +1,8 @@
+Added Component: Designator=BlueJP(XH2.54-WI-4P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BlueJP-1
+Added Member To Class: ClassName=CNC Member=Component BlueJP HDR-1X4
+Added Room: Name=CNC

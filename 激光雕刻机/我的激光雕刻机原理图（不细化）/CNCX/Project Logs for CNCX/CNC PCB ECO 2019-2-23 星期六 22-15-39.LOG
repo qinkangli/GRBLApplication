@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=XÖáA498Ä£¿é Old Footprint=DRV8825 New Footprint=DFPlayer Mini
+Change Component Footprint: Designator=YÖáA498Ä£¿é Old Footprint=DRV8825 New Footprint=DFPlayer Mini
+Change Component Footprint: Designator=BlueJP Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Added Pin To Net: NetName=3V3 Pin=U1-7
+Added Room: Name=CNC

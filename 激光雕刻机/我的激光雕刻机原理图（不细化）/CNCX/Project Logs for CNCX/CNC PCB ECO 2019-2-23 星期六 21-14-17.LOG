@@ -1,0 +1,534 @@
+Added Component: Designator=5VLED(LED 3MM-B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "插件LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=BlueJP(XH2.54-WI-4P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=BlueKey(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=BLUELED(LED 0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C1(C0805)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "104"; VariantName = "[No Variations]"
+Added Component: Designator=DC_IN(DC10B)
+Add component. Clean all parameters for all variants
+Added Component: Designator=JPArduino1(HDR2.54-LI-15P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "15P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPArduino2(HDR2.54-LI-15P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "15P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPArduino11(HDR2.54-LI-15P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "15P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPArduino22(HDR2.54-LI-15P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "15P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPIN1(HDR2.54-LI-2P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPIN2(HDR2.54-LI-2P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPOUT1(HDR2.54-LI-2P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPOUT2(HDR2.54-LI-2P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPSpindle(XH2.54-WI-3P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "3P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPSTM1(HDR2.54-LI-20P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "20P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPSTM2(HDR2.54-LI-20P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "20P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPSTM11(HDR2.54-LI-20P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "20P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPSTM22(HDR2.54-LI-20P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "20P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPX(XH2.54-WI-4P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JPY(XH2.54-WI-4P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LEDKey(LED 5MM-B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "5mm插件LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=MBluetooth(HC-05)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "串口蓝牙模块"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=PowerLED(LED 3MM-B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "插件LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=R1(R 0805_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=R2(R 0805_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=R5V(RS 1/4W)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "色环电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=R_Power(RS 1/4W)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "色环电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RKey(R0805)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=Spindle_control(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Spindle(MTS-10x)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "MTS10x系列3脚扭子开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=SW1(KFT DIP-7X7)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "7*7自锁开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=TFT显示屏1(HDR2.54-Y-LI-8P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "8P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=TFT显示屏2(HDR2.54-Y-LI-8P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "8P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=U1(SOIC-8)
+Add component. Clean all parameters for all variants
+Added Component: Designator=USW1(DIP-16)
+Add component. Clean all parameters for all variants
+Added Component: Designator=XAdd(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=XSub(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=X轴A498模块(DFPlayer Mini)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "MP3模块"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=YAdd(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=YSub(SW-PB)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Y轴A498模块(DFPlayer Mini)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "MP3模块"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=BlueKey-3
+Added Pin To Net: NetName=3V3 Pin=C1-1
+Added Pin To Net: NetName=3V3 Pin=JPArduino2-14
+Added Pin To Net: NetName=3V3 Pin=JPArduino22-14
+Added Pin To Net: NetName=3V3 Pin=JPSTM1-18
+Added Pin To Net: NetName=3V3 Pin=JPSTM2-1
+Added Pin To Net: NetName=3V3 Pin=JPSTM11-18
+Added Pin To Net: NetName=3V3 Pin=JPSTM22-1
+Added Pin To Net: NetName=3V3 Pin=MBluetooth-12
+Added Pin To Net: NetName=3V3 Pin=U1-3
+Added Pin To Net: NetName=3V3 Pin=U1-8
+Added Net: Name=3V3
+Added Pin To Net: NetName=12V Pin=DC_IN-1
+Added Pin To Net: NetName=12V Pin=JPIN1-1
+Added Pin To Net: NetName=12V Pin=JPIN1-2
+Added Pin To Net: NetName=12V Pin=JPSpindle-1
+Added Pin To Net: NetName=12V Pin=R_Power-2
+Added Pin To Net: NetName=12V Pin=SW1-2
+Added Pin To Net: NetName=12V Pin=X轴A498模块-16
+Added Pin To Net: NetName=12V Pin=Y轴A498模块-16
+Added Net: Name=12V
+Added Pin To Net: NetName=A0 Pin=JPArduino2-12
+Added Pin To Net: NetName=A0 Pin=JPArduino22-12
+Added Net: Name=A0
+Added Pin To Net: NetName=A1 Pin=JPArduino2-11
+Added Pin To Net: NetName=A1 Pin=JPArduino22-11
+Added Net: Name=A1
+Added Pin To Net: NetName=A2 Pin=JPArduino2-10
+Added Pin To Net: NetName=A2 Pin=JPArduino22-10
+Added Net: Name=A2
+Added Pin To Net: NetName=A3 Pin=JPArduino2-9
+Added Pin To Net: NetName=A3 Pin=JPArduino22-9
+Added Net: Name=A3
+Added Pin To Net: NetName=A4 Pin=JPArduino2-8
+Added Pin To Net: NetName=A4 Pin=JPArduino22-8
+Added Net: Name=A4
+Added Pin To Net: NetName=A5 Pin=JPArduino2-7
+Added Pin To Net: NetName=A5 Pin=JPArduino22-7
+Added Net: Name=A5
+Added Pin To Net: NetName=A6 Pin=JPArduino2-6
+Added Pin To Net: NetName=A6 Pin=JPArduino22-6
+Added Net: Name=A6
+Added Pin To Net: NetName=A7 Pin=JPArduino2-5
+Added Pin To Net: NetName=A7 Pin=JPArduino22-5
+Added Net: Name=A7
+Added Pin To Net: NetName=AREF Pin=JPArduino2-13
+Added Pin To Net: NetName=AREF Pin=JPArduino22-13
+Added Net: Name=AREF
+Added Pin To Net: NetName=BlueRXD Pin=BlueJP-1
+Added Pin To Net: NetName=BlueRXD Pin=MBluetooth-2
+Added Pin To Net: NetName=BlueRXD Pin=USW1-12
+Added Pin To Net: NetName=BlueRXD Pin=USW1-14
+Added Net: Name=BlueRXD
+Added Pin To Net: NetName=BlueTXD Pin=BlueJP-2
+Added Pin To Net: NetName=BlueTXD Pin=MBluetooth-1
+Added Pin To Net: NetName=BlueTXD Pin=USW1-9
+Added Pin To Net: NetName=BlueTXD Pin=USW1-11
+Added Net: Name=BlueTXD
+Added Pin To Net: NetName=D0 Pin=JPArduino1-2
+Added Pin To Net: NetName=D0 Pin=JPArduino11-2
+Added Pin To Net: NetName=D0 Pin=USW1-5
+Added Pin To Net: NetName=D0 Pin=USW1-7
+Added Net: Name=D0
+Added Pin To Net: NetName=D1 Pin=JPArduino1-1
+Added Pin To Net: NetName=D1 Pin=JPArduino11-1
+Added Pin To Net: NetName=D1 Pin=USW1-2
+Added Pin To Net: NetName=D1 Pin=USW1-4
+Added Net: Name=D1
+Added Pin To Net: NetName=D2 Pin=JPArduino1-5
+Added Pin To Net: NetName=D2 Pin=JPArduino11-5
+Added Pin To Net: NetName=D2 Pin=X轴A498模块-7
+Added Net: Name=D2
+Added Pin To Net: NetName=D3 Pin=JPArduino1-6
+Added Pin To Net: NetName=D3 Pin=JPArduino11-6
+Added Pin To Net: NetName=D3 Pin=Y轴A498模块-7
+Added Net: Name=D3
+Added Pin To Net: NetName=D4 Pin=JPArduino1-7
+Added Pin To Net: NetName=D4 Pin=JPArduino11-7
+Added Net: Name=D4
+Added Pin To Net: NetName=D5 Pin=JPArduino1-8
+Added Pin To Net: NetName=D5 Pin=JPArduino11-8
+Added Pin To Net: NetName=D5 Pin=X轴A498模块-8
+Added Net: Name=D5
+Added Pin To Net: NetName=D6 Pin=JPArduino1-9
+Added Pin To Net: NetName=D6 Pin=JPArduino11-9
+Added Pin To Net: NetName=D6 Pin=Y轴A498模块-8
+Added Net: Name=D6
+Added Pin To Net: NetName=D7 Pin=JPArduino1-10
+Added Pin To Net: NetName=D7 Pin=JPArduino11-10
+Added Net: Name=D7
+Added Pin To Net: NetName=D8 Pin=JPArduino1-11
+Added Pin To Net: NetName=D8 Pin=JPArduino11-11
+Added Pin To Net: NetName=D8 Pin=X轴A498模块-1
+Added Pin To Net: NetName=D8 Pin=Y轴A498模块-1
+Added Net: Name=D8
+Added Pin To Net: NetName=D9 Pin=JPArduino1-12
+Added Pin To Net: NetName=D9 Pin=JPArduino11-12
+Added Net: Name=D9
+Added Pin To Net: NetName=D10 Pin=JPArduino1-13
+Added Pin To Net: NetName=D10 Pin=JPArduino11-13
+Added Net: Name=D10
+Added Pin To Net: NetName=D11 Pin=JPArduino1-14
+Added Pin To Net: NetName=D11 Pin=JPArduino11-14
+Added Pin To Net: NetName=D11 Pin=Spindle-3
+Added Net: Name=D11
+Added Pin To Net: NetName=D12 Pin=JPArduino1-15
+Added Pin To Net: NetName=D12 Pin=JPArduino11-15
+Added Pin To Net: NetName=D12 Pin=Spindle-1
+Added Net: Name=D12
+Added Pin To Net: NetName=D13 Pin=JPArduino2-15
+Added Pin To Net: NetName=D13 Pin=JPArduino22-15
+Added Net: Name=D13
+Added Pin To Net: NetName=DOUT Pin=JPSpindle-3
+Added Pin To Net: NetName=DOUT Pin=Spindle-2
+Added Net: Name=DOUT
+Added Pin To Net: NetName=GND Pin=5VLED-2
+Added Pin To Net: NetName=GND Pin=BlueJP-3
+Added Pin To Net: NetName=GND Pin=BLUELED-2
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=DC_IN-2
+Added Pin To Net: NetName=GND Pin=DC_IN-3
+Added Pin To Net: NetName=GND Pin=JPArduino1-3
+Added Pin To Net: NetName=GND Pin=JPArduino2-2
+Added Pin To Net: NetName=GND Pin=JPArduino11-3
+Added Pin To Net: NetName=GND Pin=JPArduino22-2
+Added Pin To Net: NetName=GND Pin=JPIN2-1
+Added Pin To Net: NetName=GND Pin=JPIN2-2
+Added Pin To Net: NetName=GND Pin=JPOUT2-1
+Added Pin To Net: NetName=GND Pin=JPOUT2-2
+Added Pin To Net: NetName=GND Pin=JPSpindle-2
+Added Pin To Net: NetName=GND Pin=JPSTM1-19
+Added Pin To Net: NetName=GND Pin=JPSTM1-20
+Added Pin To Net: NetName=GND Pin=JPSTM2-2
+Added Pin To Net: NetName=GND Pin=JPSTM11-19
+Added Pin To Net: NetName=GND Pin=JPSTM11-20
+Added Pin To Net: NetName=GND Pin=JPSTM22-2
+Added Pin To Net: NetName=GND Pin=LEDKey-1
+Added Pin To Net: NetName=GND Pin=MBluetooth-13
+Added Pin To Net: NetName=GND Pin=MBluetooth-22
+Added Pin To Net: NetName=GND Pin=PowerLED-2
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=SW1-3
+Added Pin To Net: NetName=GND Pin=TFT显示屏1-1
+Added Pin To Net: NetName=GND Pin=TFT显示屏2-2
+Added Pin To Net: NetName=GND Pin=U1-4
+Added Pin To Net: NetName=GND Pin=USW1-8
+Added Pin To Net: NetName=GND Pin=USW1-15
+Added Pin To Net: NetName=GND Pin=X轴A498模块-9
+Added Pin To Net: NetName=GND Pin=X轴A498模块-15
+Added Pin To Net: NetName=GND Pin=Y轴A498模块-9
+Added Pin To Net: NetName=GND Pin=Y轴A498模块-15
+Added Net: Name=GND
+Added Pin To Net: NetName=Net5VLED_1 Pin=5VLED-1
+Added Pin To Net: NetName=Net5VLED_1 Pin=R5V-2
+Added Net: Name=Net5VLED_1
+Added Pin To Net: NetName=NetBlueKey_1 Pin=BlueKey-1
+Added Pin To Net: NetName=NetBlueKey_1 Pin=MBluetooth-26
+Added Pin To Net: NetName=NetBlueKey_1 Pin=R1-2
+Added Net: Name=NetBlueKey_1
+Added Pin To Net: NetName=NetBLUELED_1 Pin=BLUELED-1
+Added Pin To Net: NetName=NetBLUELED_1 Pin=R2-1
+Added Net: Name=NetBLUELED_1
+Added Pin To Net: NetName=NetJPX_1 Pin=JPX-1
+Added Pin To Net: NetName=NetJPX_1 Pin=X轴A498模块-14
+Added Net: Name=NetJPX_1
+Added Pin To Net: NetName=NetJPX_2 Pin=JPX-2
+Added Pin To Net: NetName=NetJPX_2 Pin=X轴A498模块-13
+Added Net: Name=NetJPX_2
+Added Pin To Net: NetName=NetJPX_3 Pin=JPX-3
+Added Pin To Net: NetName=NetJPX_3 Pin=X轴A498模块-12
+Added Net: Name=NetJPX_3
+Added Pin To Net: NetName=NetJPX_4 Pin=JPX-4
+Added Pin To Net: NetName=NetJPX_4 Pin=X轴A498模块-11
+Added Net: Name=NetJPX_4
+Added Pin To Net: NetName=NetJPY_1 Pin=JPY-1
+Added Pin To Net: NetName=NetJPY_1 Pin=Y轴A498模块-14
+Added Net: Name=NetJPY_1
+Added Pin To Net: NetName=NetJPY_2 Pin=JPY-2
+Added Pin To Net: NetName=NetJPY_2 Pin=Y轴A498模块-13
+Added Net: Name=NetJPY_2
+Added Pin To Net: NetName=NetJPY_3 Pin=JPY-3
+Added Pin To Net: NetName=NetJPY_3 Pin=Y轴A498模块-12
+Added Net: Name=NetJPY_3
+Added Pin To Net: NetName=NetJPY_4 Pin=JPY-4
+Added Pin To Net: NetName=NetJPY_4 Pin=Y轴A498模块-11
+Added Net: Name=NetJPY_4
+Added Pin To Net: NetName=NetMBluetooth_24 Pin=MBluetooth-24
+Added Pin To Net: NetName=NetMBluetooth_24 Pin=R2-2
+Added Net: Name=NetMBluetooth_24
+Added Pin To Net: NetName=NetPowerLED_1 Pin=PowerLED-1
+Added Pin To Net: NetName=NetPowerLED_1 Pin=R_Power-1
+Added Net: Name=NetPowerLED_1
+Added Pin To Net: NetName=NetRKey_2 Pin=RKey-2
+Added Pin To Net: NetName=NetRKey_2 Pin=Spindle_control-1
+Added Pin To Net: NetName=NetRKey_2 Pin=XAdd-1
+Added Pin To Net: NetName=NetRKey_2 Pin=XSub-1
+Added Pin To Net: NetName=NetRKey_2 Pin=YAdd-1
+Added Pin To Net: NetName=NetRKey_2 Pin=YSub-1
+Added Net: Name=NetRKey_2
+Added Pin To Net: NetName=NRST Pin=JPSTM1-17
+Added Pin To Net: NetName=NRST Pin=JPSTM11-17
+Added Net: Name=NRST
+Added Pin To Net: NetName=PA0 Pin=JPSTM1-5
+Added Pin To Net: NetName=PA0 Pin=JPSTM11-5
+Added Pin To Net: NetName=PA0 Pin=TFT显示屏1-7
+Added Pin To Net: NetName=PA0 Pin=TFT显示屏2-3
+Added Net: Name=PA0
+Added Pin To Net: NetName=PA1 Pin=JPSTM1-6
+Added Pin To Net: NetName=PA1 Pin=JPSTM11-6
+Added Pin To Net: NetName=PA1 Pin=TFT显示屏1-8
+Added Pin To Net: NetName=PA1 Pin=TFT显示屏2-8
+Added Net: Name=PA1
+Added Pin To Net: NetName=PA2 Pin=JPSTM1-7
+Added Pin To Net: NetName=PA2 Pin=JPSTM11-7
+Added Pin To Net: NetName=PA2 Pin=USW1-13
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA3 Pin=JPSTM1-8
+Added Pin To Net: NetName=PA3 Pin=JPSTM11-8
+Added Pin To Net: NetName=PA3 Pin=USW1-10
+Added Net: Name=PA3
+Added Pin To Net: NetName=PA4 Pin=JPSTM1-9
+Added Pin To Net: NetName=PA4 Pin=JPSTM11-9
+Added Pin To Net: NetName=PA4 Pin=YAdd-3
+Added Net: Name=PA4
+Added Pin To Net: NetName=PA5 Pin=JPSTM1-10
+Added Pin To Net: NetName=PA5 Pin=JPSTM11-10
+Added Pin To Net: NetName=PA5 Pin=YSub-3
+Added Net: Name=PA5
+Added Pin To Net: NetName=PA6 Pin=JPSTM1-11
+Added Pin To Net: NetName=PA6 Pin=JPSTM11-11
+Added Pin To Net: NetName=PA6 Pin=Spindle_control-3
+Added Net: Name=PA6
+Added Pin To Net: NetName=PA7 Pin=JPSTM1-12
+Added Pin To Net: NetName=PA7 Pin=JPSTM11-12
+Added Pin To Net: NetName=PA7 Pin=XSub-3
+Added Net: Name=PA7
+Added Pin To Net: NetName=PA8 Pin=JPSTM2-16
+Added Pin To Net: NetName=PA8 Pin=JPSTM22-16
+Added Pin To Net: NetName=PA8 Pin=XAdd-3
+Added Net: Name=PA8
+Added Pin To Net: NetName=PA9 Pin=JPSTM2-15
+Added Pin To Net: NetName=PA9 Pin=JPSTM22-15
+Added Pin To Net: NetName=PA9 Pin=USW1-6
+Added Net: Name=PA9
+Added Pin To Net: NetName=PA10 Pin=JPSTM2-14
+Added Pin To Net: NetName=PA10 Pin=JPSTM22-14
+Added Pin To Net: NetName=PA10 Pin=USW1-3
+Added Net: Name=PA10
+Added Pin To Net: NetName=PA11 Pin=JPSTM2-13
+Added Pin To Net: NetName=PA11 Pin=JPSTM22-13
+Added Net: Name=PA11
+Added Pin To Net: NetName=PA12 Pin=JPSTM2-12
+Added Pin To Net: NetName=PA12 Pin=JPSTM22-12
+Added Net: Name=PA12
+Added Pin To Net: NetName=PA15 Pin=JPSTM2-11
+Added Pin To Net: NetName=PA15 Pin=JPSTM22-11
+Added Net: Name=PA15
+Added Pin To Net: NetName=PB0 Pin=JPSTM1-13
+Added Pin To Net: NetName=PB0 Pin=JPSTM11-13
+Added Net: Name=PB0
+Added Pin To Net: NetName=PB1 Pin=JPSTM1-14
+Added Pin To Net: NetName=PB1 Pin=JPSTM11-14
+Added Net: Name=PB1
+Added Pin To Net: NetName=PB3 Pin=JPSTM2-10
+Added Pin To Net: NetName=PB3 Pin=JPSTM22-10
+Added Pin To Net: NetName=PB3 Pin=USW1-1
+Added Net: Name=PB3
+Added Pin To Net: NetName=PB4 Pin=JPSTM2-9
+Added Pin To Net: NetName=PB4 Pin=JPSTM22-9
+Added Net: Name=PB4
+Added Pin To Net: NetName=PB5 Pin=JPSTM2-8
+Added Pin To Net: NetName=PB5 Pin=JPSTM22-8
+Added Net: Name=PB5
+Added Pin To Net: NetName=PB6 Pin=JPSTM2-7
+Added Pin To Net: NetName=PB6 Pin=JPSTM22-7
+Added Pin To Net: NetName=PB6 Pin=TFT显示屏1-6
+Added Pin To Net: NetName=PB6 Pin=TFT显示屏2-5
+Added Net: Name=PB6
+Added Pin To Net: NetName=PB7 Pin=JPSTM2-6
+Added Pin To Net: NetName=PB7 Pin=JPSTM22-6
+Added Pin To Net: NetName=PB7 Pin=TFT显示屏1-5
+Added Pin To Net: NetName=PB7 Pin=TFT显示屏2-4
+Added Net: Name=PB7
+Added Pin To Net: NetName=PB8 Pin=JPSTM2-5
+Added Pin To Net: NetName=PB8 Pin=JPSTM22-5
+Added Pin To Net: NetName=PB8 Pin=TFT显示屏1-4
+Added Pin To Net: NetName=PB8 Pin=TFT显示屏2-6
+Added Net: Name=PB8
+Added Pin To Net: NetName=PB9 Pin=JPSTM2-4
+Added Pin To Net: NetName=PB9 Pin=JPSTM22-4
+Added Pin To Net: NetName=PB9 Pin=TFT显示屏1-3
+Added Pin To Net: NetName=PB9 Pin=TFT显示屏2-7
+Added Net: Name=PB9
+Added Pin To Net: NetName=PB10 Pin=JPSTM1-15
+Added Pin To Net: NetName=PB10 Pin=JPSTM11-15
+Added Net: Name=PB10
+Added Pin To Net: NetName=PB11 Pin=JPSTM1-16
+Added Pin To Net: NetName=PB11 Pin=JPSTM11-16
+Added Net: Name=PB11
+Added Pin To Net: NetName=PB12 Pin=JPSTM2-20
+Added Pin To Net: NetName=PB12 Pin=JPSTM22-20
+Added Pin To Net: NetName=PB12 Pin=U1-1
+Added Net: Name=PB12
+Added Pin To Net: NetName=PB13 Pin=JPSTM2-19
+Added Pin To Net: NetName=PB13 Pin=JPSTM22-19
+Added Pin To Net: NetName=PB13 Pin=U1-6
+Added Net: Name=PB13
+Added Pin To Net: NetName=PB14 Pin=JPSTM2-18
+Added Pin To Net: NetName=PB14 Pin=JPSTM22-18
+Added Pin To Net: NetName=PB14 Pin=U1-2
+Added Net: Name=PB14
+Added Pin To Net: NetName=PB15 Pin=JPSTM2-17
+Added Pin To Net: NetName=PB15 Pin=JPSTM22-17
+Added Pin To Net: NetName=PB15 Pin=U1-5
+Added Net: Name=PB15
+Added Pin To Net: NetName=PC13 Pin=JPSTM1-2
+Added Pin To Net: NetName=PC13 Pin=JPSTM11-2
+Added Net: Name=PC13
+Added Pin To Net: NetName=PC14 Pin=JPSTM1-3
+Added Pin To Net: NetName=PC14 Pin=JPSTM11-3
+Added Net: Name=PC14
+Added Pin To Net: NetName=PC15 Pin=JPSTM1-4
+Added Pin To Net: NetName=PC15 Pin=JPSTM11-4
+Added Net: Name=PC15
+Added Pin To Net: NetName=RESET Pin=JPArduino2-3
+Added Pin To Net: NetName=RESET Pin=JPArduino22-3
+Added Net: Name=RESET
+Added Pin To Net: NetName=VBAT Pin=JPSTM1-1
+Added Pin To Net: NetName=VBAT Pin=JPSTM11-1
+Added Net: Name=VBAT
+Added Pin To Net: NetName=VCC Pin=BlueJP-4
+Added Pin To Net: NetName=VCC Pin=JPArduino2-4
+Added Pin To Net: NetName=VCC Pin=JPArduino22-4
+Added Pin To Net: NetName=VCC Pin=JPOUT1-1
+Added Pin To Net: NetName=VCC Pin=JPOUT1-2
+Added Pin To Net: NetName=VCC Pin=JPSTM2-3
+Added Pin To Net: NetName=VCC Pin=JPSTM22-3
+Added Pin To Net: NetName=VCC Pin=R5V-1
+Added Pin To Net: NetName=VCC Pin=TFT显示屏1-2
+Added Pin To Net: NetName=VCC Pin=TFT显示屏2-1
+Added Pin To Net: NetName=VCC Pin=USW1-16
+Added Pin To Net: NetName=VCC Pin=X轴A498模块-2
+Added Pin To Net: NetName=VCC Pin=X轴A498模块-3
+Added Pin To Net: NetName=VCC Pin=X轴A498模块-4
+Added Pin To Net: NetName=VCC Pin=X轴A498模块-10
+Added Pin To Net: NetName=VCC Pin=Y轴A498模块-2
+Added Pin To Net: NetName=VCC Pin=Y轴A498模块-3
+Added Pin To Net: NetName=VCC Pin=Y轴A498模块-4
+Added Pin To Net: NetName=VCC Pin=Y轴A498模块-10
+Added Net: Name=VCC
+Added Pin To Net: NetName=VIN Pin=JPArduino2-1
+Added Pin To Net: NetName=VIN Pin=JPArduino22-1
+Added Net: Name=VIN
+Added Class: Name=CNC
+Added Room: Name=CNC

@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=BlueRXD Pin=BlueJP-1
+Removed Pin From Net: NetName=BlueTXD Pin=BlueJP-2
+Removed Pin From Net: NetName=GND Pin=BlueJP-3
+Removed Pin From Net: NetName=VCC Pin=BlueJP-4
+Removed Member From Class: ClassName=CNC Member=BlueJP
+Change Component Footprint: Designator=JPSpindle Old Footprint=XH2.54-LI-3P New Footprint=XH2.54-WI-3P
+Change Component Footprint: Designator=JPX Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPY Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Added Room: Name=CNC

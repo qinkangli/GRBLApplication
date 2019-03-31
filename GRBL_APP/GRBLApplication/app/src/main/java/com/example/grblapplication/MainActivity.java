@@ -323,6 +323,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
                     SensorHigh.toggle();
+                    try {
+                        os.write("M3\n".getBytes("utf-8"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 break;

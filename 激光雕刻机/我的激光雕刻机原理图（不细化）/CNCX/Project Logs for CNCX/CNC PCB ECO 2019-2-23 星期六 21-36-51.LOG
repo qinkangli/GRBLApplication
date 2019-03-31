@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=BlueTXD Pin=USW1-11
+Removed Pin From Net: NetName=BlueRXD Pin=USW1-14
+Change Component Footprint: Designator=BlueJP Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPX Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Footprint: Designator=JPY Old Footprint=XH2.54-LI-4P New Footprint=XH2.54-WI-4P
+Change Component Designator: OldDesignator=TFT1 NewDesignator=TFTœ‘ æ∆¡1
+Change Component Designator: OldDesignator=TFT2 NewDesignator=TFTœ‘ æ∆¡2
+Added Pin To Net: NetName=PA3 Pin=USW1-11
+Added Pin To Net: NetName=PA2 Pin=USW1-14
+Added Room: Name=CNC
