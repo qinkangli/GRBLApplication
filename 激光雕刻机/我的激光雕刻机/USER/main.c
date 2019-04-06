@@ -97,6 +97,7 @@ int main(void)
 		W25QXX_Read(datatemp,Loop*2+1,2);//读取两字节存放在datatemp数组中
 		LCD_WriteData_16Bit(datatemp[1]<<8|datatemp[0]); 			
 	}//将flash里的数据读取出来并打印在显示屏上
+	delay_ms(1000);//延迟一秒
 	printf("M0\r\n");//关闭激光头
 	Lcd_Clear(LIGHTBLUE);
 	GUI_Menu(); //显示屏初始界面
@@ -153,84 +154,7 @@ int main(void)
 				printf("M2\r\n");
 			}
 		}
-//showimage(0,0,127,127,datatemp);
-	//addr_offset=HZK24_OFFSET;
-//		if(symbol_enable==1&&(USART_RX_STA&0x8000)!=0&&WR_COM==0)
-//		{
-//			count=(USART_RX_STA&0x3fff)-1;
-//			if(count!=0)
-//			{
-//				
-//				addr_offset=0;
-//				byte_len=0;
-//				space_pos=0;
-//				i=0;
-//				
-//				while(USART_RX_BUF[i]!=' ')
-//					i++;
-//				space_pos=i;
-//				for(i=0;i<space_pos;i++)
-//				{
-//					
-//					   byte_len+=(USART_RX_BUF[i]-'0')*pow(10,space_pos-1-i);
-//					
-//				}
-//				for(i=0;i<(USART_RX_STA&0x3fff)-space_pos-1;i++)
-//				{
-//					
-//					   addr_offset+=(USART_RX_BUF[i+space_pos+1]-'0')*pow(10,(USART_RX_STA&0x3fff)-space_pos-2-i);
-//					
-//				}
-//				symbol_enable=0;
-//				USART_RX_STA=0;
-//				count=0;
-//				WR_COM=1;
-//				if((int)(byte_len/4096)>0)
-//					USART_LEN=4096;
-//				else
-//					USART_LEN=byte_len;
-//				printf("start\r\n");
-//			}
-//			else
-//			{
-//				if(USART_RX_BUF[0]=='C')
-//					printf("OK\r\n");
-//				USART_RX_STA=0;
-//				
-//			}
-//				
-//		}
-//		if(symbol_enable==0&&WR_COM==1)
-//		{
-//			if(rec_com)
-//			{
-//				W25QXX_Write(USART_RX_BUF,addr_offset+4096*count,USART_RX_STA);	
-//				
-//				if((int)(byte_len/4096)==0)
-//				{
-//					WR_COM=0;
-//					symbol_enable=1;
-//					USART_RX_STA=0;
-//					printf("complete\r\n");
-//				}
-//				else if((int)(byte_len/4096)>0)
-//				{
-//				  byte_len-=4096;
-//					if((int)(byte_len/4096)>0)
-//							USART_LEN=4096;
-//					else
-//							USART_LEN=byte_len;
-//					printf("startnext\r\n");
-//				}
-//				count++;
-//				USART_RX_STA=0;
-//				rec_com=0;
-//				
-//				
-//			}
-//		}
-//	   
-//	}
+
 			
 
 	}
@@ -267,14 +191,14 @@ void GUI_Menu(void)
 	
 //	Cache_Display(LCDtemp);
 //	BACK_COLOR=RED;
-	LCD_ShowString(0,0,90,12,12, (u8*)"This project is");
-	LCD_ShowString(0,12,90,12,12,(u8*)"design by Eagle");
-	LCD_ShowString(0,24,90,12,12,(u8*)"if you have any");
-	LCD_ShowString(0,36,90,12,12,(u8*)"question,please");
-	LCD_ShowString(0,48,90,12,12,(u8*)"connect me,^_^ ");
-	LCD_ShowString(0,60,90,12,12,(u8*)"QQ: 1460853569 ");
-	LCD_ShowString(0,72,90,12,12,(u8*)"Tel:13679427579");
-	LCD_ShowString(0,84,90,12,12,(u8*)"    ---Eaglewzw");
+	LCD_ShowString(0,0,90,12,12, (u8*)"");
+	LCD_ShowString(0,12,90,12,12,(u8*)"");
+	LCD_ShowString(0,24,90,12,12,(u8*)"");
+	LCD_ShowString(0,36,90,12,12,(u8*)"");
+	LCD_ShowString(0,48,90,12,12,(u8*)" ");
+	LCD_ShowString(0,60,90,12,12,(u8*)" ");
+	LCD_ShowString(0,72,90,12,12,(u8*)"");
+	LCD_ShowString(0,84,90,12,12,(u8*)"");
 }
 
 void Cache_Display(u8 *s)
@@ -317,30 +241,3 @@ void Cache_Display(u8 *s)
 
 
 
-//		if(X_KEY==0)
-//		{
-//			delay_ms(10);
-//			if(X_KEY==0)
-//			{
-//				while(!X_KEY);
-//				LED=!LED;
-//			}
-//		}
-//		if(Y_KEY==0)
-//		{
-//			delay_ms(10);
-//			if(Y_KEY==0)
-//			{
-//				while(!Y_KEY);
-//				LED=!LED;
-//			}
-//		}
-//		if(LAS_KEY==0)
-//		{
-//			delay_ms(10);
-//			if(LAS_KEY==0)
-//			{
-//				LED=!LED;
-//				while(!LAS_KEY);
-//			}
-//		}
